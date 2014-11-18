@@ -63,9 +63,9 @@
 
                 var notifyScope = $rootScope.$new();
                 var tpl = $compile(
-                    '<div class="ngn" ng-class="ngNotify.notifyClass">' +
-                        '<span class="ngn-dismiss" ng-click="dismiss()">&times;</span>' +
-                        '<span ng-bind-html="ngNotify.notifyMessage"></span>' +
+                    '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="dismiss()">' +
+                        // '<span class="ngn-dismiss">&times;</span>' +
+                        '<span>{{ ngNotify.notifyMessage }}</span>' +
                     '</div>'
                 )(notifyScope);
 
