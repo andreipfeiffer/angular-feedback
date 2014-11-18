@@ -32,6 +32,7 @@
                 };
 
                 // Options...
+                var userOpts = {};
 
                 var themes = {
                     pure: '',
@@ -266,8 +267,6 @@
 
                         $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
-
-                        var userOpts = {};
 
                         if (typeof userOpt === 'object') {
                             userOpts = {
