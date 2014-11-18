@@ -224,9 +224,10 @@
                  *
                  */
                 notifyScope.dismiss = function() {
-                    el.fadeOut(500, function() {
+                    el.el[0].classList.remove(setPosition(userOpts.position));
+                    $timeout(function() {
                         notifyReset();
-                    });
+                    }, 400);
                 };
 
                 /**
@@ -283,23 +284,24 @@
                         var sticky = setSticky(userOpts.sticky);
                         var duration = setDuration(userOpts.duration);
                         var notifyClass = setType(userOpts.type) + ' ' +
-                                          setTheme(userOpts.theme) + ' ' +
-                                          setPosition(userOpts.position);
+                                          setTheme(userOpts.theme) + ' ';
 
+                        notifyClass += setPosition(userOpts.position);
                         notifyClass += sticky ? ' ngn-sticky' : '';
+                        // notifyClass += ' is-animated';
 
                         notifyScope.ngNotify = {
                             notifyClass: notifyClass,
                             notifyMessage: message
                         };
 
-                        el.fadeIn(200, function() {
+                        // el.fadeIn(200, function() {
                             if (!sticky) {
                                 notifyTimeout = $timeout(function() {
                                     notifyScope.dismiss();
                                 }, duration);
                             }
-                        });
+                        // });
                     },
 
                     /**
