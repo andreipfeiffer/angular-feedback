@@ -1,14 +1,14 @@
 {
-  "name": "ng-notify",
+  "name": "ng-notify-drew",
   "version": "0.5.0",
-  "description": "A simple, lightweight module for displaying notifications in your AngularJS app.",
+  "description": "A simple, lightweight module for displaying notifications in your AngularJS app (modified).",
   "main": "./src/scripts/ng-notify.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matowens/ng-notify"
+    "url": "https://github.com/andreipfeiffer/ng-notify-drew"
   },
   "keywords": [
     "AngularJS",
