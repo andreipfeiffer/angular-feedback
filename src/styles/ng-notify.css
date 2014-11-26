@@ -4,10 +4,12 @@
   cursor: default;
   display: block;
   font-size: 1.3em;
-  left: 0;
+  left: 1em;
+  width: calc(100% - 6em);
   opacity: 1;
-  padding: 25px 80px;
+  padding: 1em 2em;
   position: fixed;
+  border-radius: 1.5em;
   right: 0;
   text-align: center;
   -webkit-touch-callout: none;
@@ -19,7 +21,7 @@
 }
 
 .ngn-top {
-  top: 0;
+  top: 1em;
 }
 
 .ngn-bottom {
@@ -72,6 +74,11 @@
     width: 20px;
   }
 }
+
+.ngn-message {
+  white-space: pre;
+}
+
 /* Themes - Default - Pure */
 .ngn-info { background-color: #0e90d2; }
 .ngn-error { background-color: #dd514c; }

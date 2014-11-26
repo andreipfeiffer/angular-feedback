@@ -65,7 +65,7 @@
                 var tpl = $compile(
                     '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="dismiss()">' +
                         // '<span class="ngn-dismiss">&times;</span>' +
-                        '<span>{{ ngNotify.notifyMessage }}</span>' +
+                        '<span class="ngn-message">{{ ngNotify.notifyMessage }}</span>' +
                     '</div>'
                 )(notifyScope);
 

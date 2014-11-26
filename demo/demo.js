@@ -48,7 +48,7 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
                     ngNotify.set('An additional notification type to use.', 'grimace');
                     break;
                 default:
-                    ngNotify.set('This is the current default message type.');
+                    ngNotify.set('This is the current default message type. \nIt can be displayed on multiple lines.');
                     break;
             }
         };
