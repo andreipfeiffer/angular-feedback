@@ -25,7 +25,7 @@
 
                 var options = {
                     theme: 'pure',
-                    position: 'bottom',
+                    position: 'top',
                     duration: 3000,
                     type: 'info',
                     sticky: false
