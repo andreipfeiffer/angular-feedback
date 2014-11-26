@@ -3,7 +3,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
@@ -25,14 +24,6 @@ module.exports = function(grunt) {
 
         clean: {
             dist: ['dist']
-        },
-
-        sass: {
-            build: {
-                files: {
-                    'src/styles/ng-notify.css': 'src/styles/ng-notify.sass'
-                }
-            }
         },
 
         cssmin: {
@@ -109,7 +100,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'jshint',
         'clean', 
-        'sass',
         'cssmin:build',
         'uglify:build',
         'demo'
