@@ -74,8 +74,6 @@
   animation-timing-function: cubic-bezier(.37,.86,.58,.95);
 }
 .ngn-contract {
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
   -webkit-animation-name: animateContract;
   animation-name: animateContract;
 }
@@ -151,9 +149,9 @@
 
 @-webkit-keyframes animateContract {
   0% { width: calc(100% - 2em); opacity: 1; }
-  100% { width: 0; opacity: 0; }
+  100% { width: 50%; opacity: 0; }
 }
 @keyframes animateContract {
   0% { width: calc(100% - 2em); opacity: 1; }
-  100% { width: 0; opacity: 0; }
+  100% { width: 50%; opacity: 0; }
 }
