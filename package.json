@@ -1,19 +1,19 @@
 {
-  "name": "ng-notify-drew",
+  "name": "feedback",
   "version": "0.6.0",
-  "description": "A simple, lightweight module for displaying notifications & loaders in your AngularJS app (modified by Andrei Pfeiffer).",
-  "main": "./src/scripts/ng-notify.js",
+  "description": "A simple, lightweight module for displaying notifications & loaders in your AngularJS app",
+  "main": "./src/scripts/feedback.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andreipfeiffer/ng-notify-drew"
+    "url": "https://github.com/andreipfeiffer/feedback"
   },
   "author": "Mat Owens <mat@peglegg.net>",
   "contributors": ["Andrei Pfeiffer <andrei@upsidedown.ro>"],
   "license": "MIT",
-  "homepage": "http://andreipfeiffer.github.io/ng-notify-drew/",
+  "homepage": "http://andreipfeiffer.github.io/feedback/",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0",
