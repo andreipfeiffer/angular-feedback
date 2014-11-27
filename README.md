@@ -6,6 +6,4 @@ For the original, please see: [https://github.com/matowens/ng-notify](https://gi
 
 ## todos
 
-* Make long texts wrap on multiple lines, while keeping the initial height the same
-* Make it expand from the middle
 * Add loader
