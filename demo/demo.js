@@ -73,7 +73,7 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
         $scope.defaultType = 'info';
         $scope.defaultOptions = ['info', 'success', 'warn', 'error', 'grimace'];
 
-        $scope.sticky = false;
+        $scope.sticky = true;
         $scope.stickyOptions = [true, false];
 
         // Configuration actions...

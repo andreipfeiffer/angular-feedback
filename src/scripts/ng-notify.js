@@ -28,7 +28,7 @@
                     position: 'top',
                     duration: 3000,
                     type: 'info',
-                    sticky: false
+                    sticky: true
                 };
 
                 // Options...
