@@ -4,10 +4,10 @@
   cursor: default;
   display: block;
   font-size: 1.3em;
-  left: 1em;
+  left: 0;
+  /*leave 1em margins left/right*/
   width: calc(100% - 2em);
   margin: 0 auto;
-  /*overflow: hidden;*/
   padding: 1em 2em;
   position: fixed;
   border-radius: 1.5em;
@@ -64,8 +64,8 @@
   animation-duration: 0.3s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-timing-function: cubic-bezier(.05, .49, .04, .71);
-  animation-timing-function: cubic-bezier(.05, .49, .04, .71);
+  -webkit-animation-timing-function: cubic-bezier(.02,.19,.16,.86);
+  animation-timing-function: cubic-bezier(.02,.19,.16,.86);
 }
 
 /*.ngn-dismiss {
