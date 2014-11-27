@@ -2,14 +2,15 @@
   color: white;
   cursor: default;
   display: block;
+  top: 1em;
   left: 0;
+  right: 0;
   /*leave 1em margins left/right*/
   width: calc(100% - 2em);
   margin: 0 auto;
   padding: 1em 2em;
   position: fixed;
   border-radius: 1.5em;
-  right: 0;
   text-align: center;
 
   /*box-shadow: 0 0 5px 0 rgba(0, 0, 0, .7);*/
@@ -54,13 +55,6 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: block;
-}
-
-.ngn-top {
-  top: 1em;
-}
-.ngn-bottom {
-  bottom: 0;
 }
 
 .ngn-animate {

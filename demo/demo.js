@@ -64,9 +64,6 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
             { id: 8000 , value: '8000 ms'}
         ];
 
-        $scope.position = 'top';
-        $scope.positionOptions = ['top', 'bottom'];
-
         $scope.defaultType = 'info';
         $scope.defaultOptions = ['info', 'success', 'warn', 'error', 'grimace'];
 
@@ -78,12 +75,6 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
         $scope.setDefaultType = function() {
             ngNotify.config({
                 type: $scope.defaultType
-            });
-        };
-
-        $scope.setDefaultPosition = function() {
-            ngNotify.config({
-                position: $scope.position
             });
         };
 

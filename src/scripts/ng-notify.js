@@ -22,7 +22,6 @@
             function($document, $compile, $rootScope, $timeout, $interval) {
 
                 var options = {
-                    position: 'top',
                     duration: 3000,
                     type: 'info',
                     sticky: true
@@ -37,11 +36,6 @@
                     warnClass: 'ngn-warn',
                     grimaceClass: 'ngn-grimace',
                     neutralClass: 'ngn-neutral'
-                };
-
-                var positions = {
-                    bottom: 'ngn-bottom',
-                    top: 'ngn-top'
                 };
 
                 var notifyTimeout;
@@ -64,11 +58,6 @@
                 var setType = function(providedType) {
                     var type = (providedType || options.type) + 'Class';
                     return types[type] || types.infoClass;
-                };
-
-                var setPosition = function(providedPosition) {
-                    var position = providedPosition || options.position;
-                    return positions[position] || positions.top;
                 };
 
                 var setDuration = function(providedDuration) {
@@ -127,7 +116,6 @@
                         if (typeof userOpt === 'object') {
                             userOpts = {
                                 type: userOpt.type || undefined,
-                                position: userOpt.position || undefined,
                                 duration: userOpt.duration || undefined,
                                 sticky: userOpt.sticky || undefined
                             };
@@ -140,7 +128,6 @@
                         var duration = setDuration(userOpts.duration);
                         var notifyClass = setType(userOpts.type) + ' ';
 
-                        notifyClass += setPosition(userOpts.position);
                         notifyClass += sticky ? ' ngn-sticky' : '';
                         notifyClass += ' ngn-animate';
 
@@ -171,7 +158,6 @@
                         $timeout.cancel(notifyDismiss);
 
                         var notifyClass = setType('neutral') + ' ' +
-                                          setPosition() + ' '+
                                           ' ngn-loading';
 
                         notifyScope.ngNotify = notifyScope.ngNotify || {};
