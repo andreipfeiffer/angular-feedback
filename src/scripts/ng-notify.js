@@ -17,9 +17,9 @@
 
      module.provider('ngNotify', function() {
 
-        this.$get = ['$document', '$compile', '$rootScope', '$timeout', '$interval',
+        this.$get = ['$document', '$compile', '$rootScope', '$timeout',
 
-            function($document, $compile, $rootScope, $timeout, $interval) {
+            function($document, $compile, $rootScope, $timeout) {
 
                 var options = {
                     duration: 3000,
@@ -39,7 +39,6 @@
                 };
 
                 var notifyTimeout;
-                var notifyInterval;
                 var notifyDismiss;
 
                 // Template and scope...
@@ -109,7 +108,6 @@
                             return;
                         }
 
-                        $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
                         $timeout.cancel(notifyDismiss);
 
@@ -134,7 +132,6 @@
                         notifyScope.ngNotify = notifyScope.ngNotify || {};
 
                         notifyScope.ngNotify.notifyClass = '';
-                        notifyScope.ngNotify.notifyMessage = message;
                         notifyScope.ngNotify.isLoading = false;
 
                         if (!sticky) {
@@ -145,15 +142,11 @@
 
                         $timeout(function() {
                             notifyScope.ngNotify.notifyClass = notifyClass;
-                        }, 1);
-                    },
-
-                    dismiss: function() {
-                        notifyScope.dismiss();
+                            notifyScope.ngNotify.notifyMessage = message;
+                        }, 50);
                     },
 
                     load: function() {
-                        $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
                         $timeout.cancel(notifyDismiss);
 
@@ -161,14 +154,18 @@
                                           ' ngn-loading';
 
                         notifyScope.ngNotify = notifyScope.ngNotify || {};
-                        notifyScope.ngNotify.isLoading = true;
 
                         notifyScope.ngNotify.notifyClass = '';
                         notifyScope.ngNotify.notifyMessage = '';
 
                         $timeout(function() {
                             notifyScope.ngNotify.notifyClass = notifyClass;
-                        }, 1);
+                            notifyScope.ngNotify.isLoading = true;
+                        }, 50);
+                    },
+
+                    dismiss: function() {
+                        notifyScope.dismiss();
                     },
 
 
