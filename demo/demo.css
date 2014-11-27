@@ -1,8 +1,8 @@
 html, body {
-    background: #EFEFEF;
+    background: #fff;
     color: #222;
-    /*font-family: 'Open Sans', sans-serif;*/
     margin: 0;
+    font-family: Tahoma, sans-serif;
 }
 
 /* Fix for clickable elements without href */
@@ -17,11 +17,9 @@ html, body {
     margin: 0;
     padding: 75px 0 100px;
     text-align: center;
-    text-shadow: 2px 2px 2px rgba(10, 10, 10, 0.1);
 }
 
 h1 {
-    font-family: 'Source Serif Pro', serif;
     font-size: 3em;
 }
 
@@ -181,162 +179,6 @@ li {
     color: #FFF;
 }
 
-/* Theme - Prime */
-
-.prime.success {
-    border-color: #00cc00;
-    color: #00cc00;
-}
-
-.prime.success:hover {
-    background-color: #00cc00;
-    color: #FFF;
-}
-
-.prime.info {
-    border-color: #0033cc;
-    color: #0033cc;
-}
-
-.prime.info:hover {
-    background-color: #0033cc;
-    color: #FFF;
-}
-
-.prime.warn {
-    border-color: #ff9900;
-    color: #ff9900;
-}
-
-.prime.warn:hover {
-    background-color: #ff9900;
-    color: #FFF;
-}
-
-.prime.error {
-    border-color: #ff0000;
-    color: #ff0000;
-}
-
-.prime.error:hover {
-    background-color: #ff0000;
-    color: #FFF;
-}
-
-.prime.grimace {
-    border-color: #660099;
-    color: #660099;
-}
-
-.prime.grimace:hover {
-    background-color: #660099;
-    color: #FFF;
-}
-
-/* Theme - Pastel */
-
-.pastel.success {
-    border-color: #82CA9D;
-    color: #82CA9D;
-}
-
-.pastel.success:hover {
-    background-color: #82CA9D;
-    color: #FFF;
-}
-
-.pastel.info {
-    border-color: #7EA7D8;
-    color: #7EA7D8;
-}
-
-.pastel.info:hover {
-    background-color: #7EA7D8;
-    color: #FFF;
-}
-
-.pastel.warn {
-    border-color: #FDC68A;
-    color: #FDC68A;
-}
-
-.pastel.warn:hover {
-    background-color: #FDC68A;
-    color: #FFF;
-}
-
-.pastel.error {
-    border-color: #F6989D;
-    color: #F6989D;
-}
-
-.pastel.error:hover {
-    background-color: #F6989D;
-    color: #FFF;
-}
-
-.pastel.grimace {
-    border-color: #A187BE;
-    color: #A187BE;
-}
-
-.pastel.grimace:hover {
-    background-color: #A187BE;
-    color: #FFF;
-}
-
-/* Theme - Pitchy */
-
-.pitchy.success {
-    border-color: #007236;
-    color: #007236;
-}
-
-.pitchy.success:hover {
-    background-color: #007236;
-    color: #FFF;
-}
-
-.pitchy.info {
-    border-color: #003471;
-    color: #003471;
-}
-
-.pitchy.info:hover {
-    background-color: #003471;
-    color: #FFF;
-}
-
-.pitchy.warn {
-    border-color: #A36209;
-    color: #A36209;
-}
-
-.pitchy.warn:hover {
-    background-color: #A36209;
-    color: #FFF;
-}
-
-.pitchy.error {
-    border-color: #9E0B0F;
-    color: #9E0B0F;
-}
-
-.pitchy.error:hover {
-    background-color: #9E0B0F;
-    color: #FFF;
-}
-
-.pitchy.grimace {
-    border-color: #440E62;
-    color: #440E62;
-}
-
-.pitchy.grimace:hover {
-    background-color: #440E62;
-    color: #FFF;
-}
-
 select {
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
@@ -349,7 +191,3 @@ select {
     text-align: center;
     max-width: 105px;
 }
-
-@-webkit-keyframes mowens-color{0%{color:red}15%{color:#ff0}25%{color:orange}35%{color:#00f}50%{color:green}65%{color:#000}75%{color:red}85%{color:#fff}100%{color:#00f}}
-@-moz-keyframes mowens-color{0%{color:red}15%{color:#ff0}25%{color:orange}35%{color:#00f}50%{color:green}65%{color:#000}75%{color:red}85%{color:#fff}100%{color:#00f}}
-@keyframes mowens-color{0%{color:red}15%{color:#ff0}25%{color:orange}35%{color:#00f}50%{color:green}65%{color:#000}75%{color:red}85%{color:#fff}100%{color:#00f}}
