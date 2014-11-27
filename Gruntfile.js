@@ -99,9 +99,9 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'jshint',
-        'clean', 
-        'cssmin:build',
-        'uglify:build',
+        // 'clean', 
+        // 'cssmin:build',
+        // 'uglify:build',
         'demo'
     ]);
 
