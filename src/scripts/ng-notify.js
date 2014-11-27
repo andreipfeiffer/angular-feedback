@@ -65,7 +65,8 @@
                 var tpl = $compile(
                     '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="dismiss()">' +
                         // '<span class="ngn-dismiss">&times;</span>' +
-                        '<span class="ngn-message">{{ ngNotify.notifyMessage }}</span>' +
+                        '<span class="ngn-message" ng-if="!ngNotify.isLoading">{{ ngNotify.notifyMessage }}</span>' +
+                        '<span class="b-loading" ng-if="ngNotify.isLoading"></span>' +
                     '</div>'
                 )(notifyScope);
 
@@ -148,6 +149,7 @@
                     // }, 500);
                 };
 
+
                 var el = tpl;
 
                 /**
@@ -206,7 +208,8 @@
 
                         notifyScope.ngNotify = {
                             notifyClass: notifyClass,
-                            notifyMessage: message
+                            notifyMessage: message,
+                            isLoading: false
                         };
 
                         // remove the animation class, after the animation ended
@@ -230,6 +233,32 @@
                      */
                     dismiss: function() {
                         notifyScope.dismiss();
+                    },
+
+                    load: function() {
+                        $interval.cancel(notifyInterval);
+                        $timeout.cancel(notifyTimeout);
+
+                        var notifyClass = setType() + ' ' +
+                                          setTheme() + ' '+
+                                          setPosition() + ' '+
+                                          ' ngn-loading';
+
+                        notifyScope.ngNotify = notifyScope.ngNotify || {};
+                        notifyScope.ngNotify.isLoading = true;
+
+                        notifyScope.ngNotify.notifyClass = notifyClass;
+                        notifyScope.ngNotify.notifyMessage = '';
+                    },
+
+                    unload: function() {
+                        $interval.cancel(notifyInterval);
+                        $timeout.cancel(notifyTimeout);
+
+                        notifyScope.ngNotify = notifyScope.ngNotify || {};
+                        notifyScope.ngNotify.isLoading = false;
+                        notifyScope.ngNotify.notifyClass = '';
+                        notifyScope.ngNotify.notifyMessage = '';
                     },
 
                     // User customizations...
