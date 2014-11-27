@@ -55,9 +55,6 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
 
         // Configuration options...
 
-        $scope.theme = 'pure';
-        $scope.themeOptions = ['pure', 'pastel', 'prime', 'pitchy'];
-
         $scope.duration = 4000;
         $scope.durationOptions = [
             { id: 500, value: '500 ms' }, 
@@ -93,12 +90,6 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
         $scope.setDefaultDuration = function() {
             ngNotify.config({
                 duration: $scope.duration
-            });
-        };
-
-        $scope.setDefaultTheme = function() {
-            ngNotify.config({
-                theme: $scope.theme
             });
         };
 

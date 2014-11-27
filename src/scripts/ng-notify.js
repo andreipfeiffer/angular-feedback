@@ -21,40 +21,28 @@
 
             function($document, $compile, $rootScope, $timeout, $interval) {
 
-                // Defaults...
-
                 var options = {
-                    theme: 'pure',
                     position: 'top',
                     duration: 3000,
                     type: 'info',
                     sticky: true
                 };
 
-                // Options...
                 var userOpts = {};
-
-                var themes = {
-                    pure: '',
-                    prime: 'ngn-prime',
-                    pastel: 'ngn-pastel',
-                    pitchy: 'ngn-pitchy'
-                };
 
                 var types = {
                     infoClass: 'ngn-info',
                     errorClass: 'ngn-error',
                     successClass: 'ngn-success',
                     warnClass: 'ngn-warn',
-                    grimaceClass: 'ngn-grimace'
+                    grimaceClass: 'ngn-grimace',
+                    neutralClass: 'ngn-neutral'
                 };
 
                 var positions = {
                     bottom: 'ngn-bottom',
                     top: 'ngn-top'
                 };
-
-                // Fade params...
 
                 var notifyTimeout;
                 var notifyInterval;
@@ -72,28 +60,9 @@
 
                 $document.find('body').append(tpl);
 
-                // Private methods...
-
-                /**
-                 * Sets what type of notification do display, eg, error, warning, etc.
-                 *
-                 * @param  {String} providedType - optional user provided type that will override our default value.
-                 * @return {String}              - the type that will be assigned to this notification.
-                 */
                 var setType = function(providedType) {
                     var type = (providedType || options.type) + 'Class';
                     return types[type] || types.infoClass;
-                };
-
-                /**
-                 * Sets the theme for a notification, eg, pure, pastel, etc.
-                 *
-                 * @param  {String} providedTheme - optional user provided theme that will override our default value.
-                 * @return {String}               - the theme that will be assigned to this notification.
-                 */
-                var setTheme = function(providedTheme) {
-                    var theme = providedTheme || options.theme;
-                    return themes[theme] || themes.pure;
                 };
 
                 var setPosition = function(providedPosition) {
@@ -131,22 +100,11 @@
                  */
                 var notifyObject = {
 
-                    /**
-                     * Merges our user specified options with our default set of options.
-                     *
-                     * @param {Object} params - object of user provided options to configure notifications.
-                     */
                     config: function(params) {
                         params = params || {};
                         angular.extend(options, params);
                     },
 
-                    /**
-                     * Sets, configures and displays each notification.
-                     *
-                     * @param {String}             message - the message our notification will display to the user.
-                     * @param {String|Object|null} userOpt - optional parameter that contains the type or an object of options used to configure this notification.
-                     */
                     set: function(message, userOpt) {
 
                         if (!message) {
@@ -159,7 +117,6 @@
                         if (typeof userOpt === 'object') {
                             userOpts = {
                                 type: userOpt.type || undefined,
-                                theme: userOpt.theme || undefined,
                                 position: userOpt.position || undefined,
                                 duration: userOpt.duration || undefined,
                                 sticky: userOpt.sticky || undefined
@@ -171,8 +128,7 @@
 
                         var sticky = setSticky(userOpts.sticky);
                         var duration = setDuration(userOpts.duration);
-                        var notifyClass = setType(userOpts.type) + ' ' +
-                                          setTheme(userOpts.theme) + ' ';
+                        var notifyClass = setType(userOpts.type) + ' ';
 
                         notifyClass += setPosition(userOpts.position);
                         notifyClass += sticky ? ' ngn-sticky' : '';
@@ -197,10 +153,6 @@
                         }, 1);
                     },
 
-                    /**
-                     * Allows a developer to manually dismiss a notification that may be
-                     * set to sticky, when the message is no longer warranted.
-                     */
                     dismiss: function() {
                         notifyScope.dismiss();
                     },
@@ -209,8 +161,7 @@
                         $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
 
-                        var notifyClass = setType() + ' ' +
-                                          setTheme() + ' '+
+                        var notifyClass = setType('neutral') + ' ' +
                                           setPosition() + ' '+
                                           ' ngn-loading';
 
@@ -227,18 +178,6 @@
 
 
                     // User customizations...
-
-                    /**
-                     * Adds a new, user specified theme to our notification system
-                     * that they can then use throughout their application.
-                     *
-                     * @param {String} themeName  - the name for this new theme that will be used when applying it via configuration.
-                     * @param {String} themeClass - the class that this theme will use when applying it's styles.
-                     */
-                    addTheme: function(themeName, themeClass) {
-                        if (!themeName || !themeClass) { return; }
-                        themes[themeName] = themeClass;
-                    },
 
                     /**
                      * Adds a new, user specified notification type that they
