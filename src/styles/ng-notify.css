@@ -56,8 +56,6 @@
 }
 
 .ngn-animate {
-  width: 0;
-
   -webkit-animation-name: animateExpand;
   animation-name: animateExpand;
   -webkit-animation-duration: 0.3s;
@@ -161,6 +159,15 @@
   height: 36px;
   padding: 10px;
   box-sizing: content-box;
+
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(.05,.44,.14,1.34);
+  animation-timing-function: cubic-bezier(.05,.44,.14,1.34);
 }
   .b-loading,
   .b-loading:after {
@@ -170,6 +177,7 @@
     display: block;
     margin: 0 auto;
   }
+
   @-webkit-keyframes spinAnimation {
     0% {
       -webkit-transform: rotate(0deg);
@@ -189,4 +197,15 @@
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
+  }
+
+
+  @-webkit-keyframes slideIn {
+    0% { -webkit-transform: translate3d(0,-10em,0); }
+    100% { -webkit-transform: translate3d(0,0,0);}
+  }
+
+  @keyframes slideIn {
+    0% { -webkit-transform: translate3d(0,-10em,0); transform: translate3d(0,-10em,0); }
+    100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
   }
