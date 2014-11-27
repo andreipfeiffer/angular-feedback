@@ -1,21 +1,15 @@
 /**
- * @license ng-notify v0.4.0
+ * @license
  * http://matowens.github.io/ng-notify
  * (c) 2014 MIT License, matowens.com
  */
 (function() {
+
     'use strict';
 
-    /**
-     * @description
-     *
-     * This module provides any AngularJS application with a simple, lightweight
-     * system for displaying notifications of varying degree to it's users.
-     *
-     */
-     var module = angular.module('ngNotify', []);
+     var module = angular.module('feedback', []);
 
-     module.provider('ngNotify', function() {
+     module.provider('feedback', function() {
 
         this.$get = ['$document', '$compile', '$rootScope', '$timeout',
 
@@ -38,19 +32,16 @@
                     neutralClass: 'ngn-neutral'
                 };
 
-                var notifyTimeout;
-                var notifyDismiss;
+                var timeoutAutoDismiss;
+                var timeoutDismiss;
 
-                // Template and scope...
-
-                var notifyScope = $rootScope.$new();
+                var feedbackScope = $rootScope.$new();
                 var tpl = $compile(
-                    '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="!ngNotify.isLoading && dismiss()">' +
-                        // '<span class="ngn-dismiss">&times;</span>' +
-                        '<span class="ngn-message" ng-if="!ngNotify.isLoading">{{ ngNotify.notifyMessage }}</span>' +
-                        '<span class="ngn-spinner" ng-if="ngNotify.isLoading"></span>' +
+                    '<div class="ngn" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
+                        '<span class="ngn-message" ng-if="!isLoading">{{ message }}</span>' +
+                        '<span class="ngn-spinner" ng-if="isLoading"></span>' +
                     '</div>'
-                )(notifyScope);
+                )(feedbackScope);
 
                 $document.find('body').append(tpl);
 
@@ -69,23 +60,21 @@
                     return sticky ? true : false;
                 };
 
-                var notifyReset = function() {
-                    notifyScope.ngNotify = {
-                        notifyClass: '',
-                        notifyMessage: '',
-                        isLoading: false
-                    };
+                var reset = function() {
+                    feedbackScope.feedbackClass = '';
+                    feedbackScope.message = '';
+                    feedbackScope.isLoading = false;
                 };
 
-                notifyScope.dismiss = function() {
-                    if ( notifyScope.ngNotify.isLoading ) {
-                        notifyScope.ngNotify.notifyClass += ' ngn-unloading';
+                feedbackScope.dismiss = function() {
+                    if ( feedbackScope.isLoading ) {
+                        feedbackScope.feedbackClass += ' ngn-unloading';
                     } else {
-                        notifyScope.ngNotify.notifyClass += ' ngn-contract';
+                        feedbackScope.feedbackClass += ' ngn-contract';
                     }
 
-                    notifyDismiss = $timeout(function() {
-                        notifyReset();
+                    timeoutDismiss = $timeout(function() {
+                        reset();
                     }, 500);
                 };
 
@@ -95,21 +84,21 @@
                 /**
                  * Our primary object containing all public API methods and allows for all our functionality to be invoked.
                  */
-                var notifyObject = {
+                var feedbackObject = {
 
                     config: function(params) {
                         params = params || {};
                         angular.extend(options, params);
                     },
 
-                    set: function(message, userOpt) {
+                    notify: function(message, userOpt) {
 
                         if (!message) {
                             return;
                         }
 
-                        $timeout.cancel(notifyTimeout);
-                        $timeout.cancel(notifyDismiss);
+                        $timeout.cancel(timeoutAutoDismiss);
+                        $timeout.cancel(timeoutDismiss);
 
                         if (typeof userOpt === 'object') {
                             userOpts = {
@@ -124,60 +113,44 @@
 
                         var sticky = setSticky(userOpts.sticky);
                         var duration = setDuration(userOpts.duration);
-                        var notifyClass = setType(userOpts.type) + ' ';
+                        var c = setType(userOpts.type) + ' ';
+                        c += sticky ? ' ngn-sticky' : '';
+                        c += ' ngn-animate';
 
-                        notifyClass += sticky ? ' ngn-sticky' : '';
-                        notifyClass += ' ngn-animate';
-
-                        notifyScope.ngNotify = notifyScope.ngNotify || {};
-
-                        notifyScope.ngNotify.notifyClass = '';
-                        notifyScope.ngNotify.isLoading = false;
+                        feedbackScope.feedbackClass = '';
+                        feedbackScope.isLoading = false;
 
                         if (!sticky) {
-                            notifyTimeout = $timeout(function() {
-                                notifyScope.dismiss();
+                            timeoutAutoDismiss = $timeout(function() {
+                                feedbackScope.dismiss();
                             }, duration);
                         }
 
                         $timeout(function() {
-                            notifyScope.ngNotify.notifyClass = notifyClass;
-                            notifyScope.ngNotify.notifyMessage = message;
+                            feedbackScope.feedbackClass = c;
+                            feedbackScope.message = message;
                         }, 50);
                     },
 
                     load: function() {
-                        $timeout.cancel(notifyTimeout);
-                        $timeout.cancel(notifyDismiss);
+                        $timeout.cancel(timeoutAutoDismiss);
+                        $timeout.cancel(timeoutDismiss);
 
-                        var notifyClass = setType('neutral') + ' ' +
-                                          ' ngn-loading';
+                        var c = setType('neutral') + ' ' + ' ngn-loading';
 
-                        notifyScope.ngNotify = notifyScope.ngNotify || {};
-
-                        notifyScope.ngNotify.notifyClass = '';
-                        notifyScope.ngNotify.notifyMessage = '';
+                        feedbackScope.feedbackClass = '';
+                        feedbackScope.message = '';
 
                         $timeout(function() {
-                            notifyScope.ngNotify.notifyClass = notifyClass;
-                            notifyScope.ngNotify.isLoading = true;
+                            feedbackScope.feedbackClass = c;
+                            feedbackScope.isLoading = true;
                         }, 50);
                     },
 
                     dismiss: function() {
-                        notifyScope.dismiss();
+                        feedbackScope.dismiss();
                     },
 
-
-                    // User customizations...
-
-                    /**
-                     * Adds a new, user specified notification type that they
-                     * can then use throoughout their application.
-                     *
-                     * @param {String} typeName  - the name for this new type that will be used when applying it via configuration.
-                     * @param {String} typeClass - the class that this type will use when applying it's styles.
-                     */
                     addType: function(typeName, typeClass) {
                         if (!typeName || !typeClass) { return; }
                         types[typeName + 'Class'] = typeClass;
@@ -185,7 +158,7 @@
 
                 };
 
-                return notifyObject;
+                return feedbackObject;
             }
         ];
      });
