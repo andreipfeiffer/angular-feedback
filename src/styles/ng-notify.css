@@ -5,9 +5,9 @@
   display: block;
   font-size: 1.3em;
   left: 1em;
-  width: calc(100% - 6em);
-  overflow: hidden;
-  opacity: 1;
+  width: calc(100% - 2em);
+  margin: 0 auto;
+  /*overflow: hidden;*/
   padding: 1em 2em;
   position: fixed;
   border-radius: 1.5em;
@@ -19,6 +19,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  box-sizing: border-box;
 }
 
 @-webkit-keyframes animateExpand {
@@ -27,7 +29,7 @@
   0% { -webkit-transform: scaleX(0); }
   100% { -webkit-transform: scaleX(1);}*/
   0% { width: 0; }
-  100% { width: calc(100% - 6em); }
+  100% { width: calc(100% - 2em); }
 }
 
 @keyframes animateExpand {
@@ -36,11 +38,14 @@
   0% { -webkit-transform: scaleX(0); transform: scaleX(0); }
   100% { -webkit-transform: scaleX(1); transform: scaleX(1); }*/
   0% { width: 0; }
-  100% { width: calc(100% - 6em); }
+  100% { width: calc(100% - 2em); }
 }
 
 .ngn-message {
   white-space: pre;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
 }
 
 .ngn-top {
