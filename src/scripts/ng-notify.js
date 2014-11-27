@@ -206,17 +206,11 @@
                         notifyClass += sticky ? ' ngn-sticky' : '';
                         notifyClass += ' ngn-animate';
 
-                        notifyScope.ngNotify = {
-                            notifyClass: notifyClass,
-                            notifyMessage: message,
-                            isLoading: false
-                        };
+                        notifyScope.ngNotify = notifyScope.ngNotify || {};
 
-                        // remove the animation class, after the animation ended
-                        // so it re-starts everytime we call the service
-                        $timeout(function() {
-                            notifyScope.ngNotify.notifyClass = notifyClass.replace('ngn-animate', '');
-                        }, 300);
+                        notifyScope.ngNotify.notifyClass = '';
+                        notifyScope.ngNotify.notifyMessage = message;
+                        notifyScope.ngNotify.isLoading = false;
 
                         // el.fadeIn(200, function() {
                             if (!sticky) {
@@ -225,6 +219,10 @@
                                 }, duration);
                             }
                         // });
+
+                        $timeout(function() {
+                            notifyScope.ngNotify.notifyClass = notifyClass;
+                        }, 1);
                     },
 
                     /**
@@ -247,8 +245,12 @@
                         notifyScope.ngNotify = notifyScope.ngNotify || {};
                         notifyScope.ngNotify.isLoading = true;
 
-                        notifyScope.ngNotify.notifyClass = notifyClass;
+                        notifyScope.ngNotify.notifyClass = '';
                         notifyScope.ngNotify.notifyMessage = '';
+
+                        $timeout(function() {
+                            notifyScope.ngNotify.notifyClass = notifyClass;
+                        }, 1);
                     },
 
                     unload: function() {
