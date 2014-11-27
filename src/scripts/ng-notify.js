@@ -63,7 +63,7 @@
 
                 var notifyScope = $rootScope.$new();
                 var tpl = $compile(
-                    '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="dismiss()">' +
+                    '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="!ngNotify.isLoading && dismiss()">' +
                         // '<span class="ngn-dismiss">&times;</span>' +
                         '<span class="ngn-message" ng-if="!ngNotify.isLoading">{{ ngNotify.notifyMessage }}</span>' +
                         '<span class="b-loading" ng-if="ngNotify.isLoading"></span>' +
@@ -96,57 +96,31 @@
                     return themes[theme] || themes.pure;
                 };
 
-                /**
-                 * Sets the position of the notification, eg, top or bottom.
-                 *
-                 * @param  {String} providedPosition - optional user provided position that will override our default value.
-                 * @return {String}                  - the position that will be assigned to this notification.
-                 */
                 var setPosition = function(providedPosition) {
                     var position = providedPosition || options.position;
                     return positions[position] || positions.top;
                 };
 
-                /**
-                 * Sets how long (in ms) to display the notification for.
-                 *
-                 * @param  {Integer} providedDuration - optional user provided number of ms a fade lasts.
-                 * @return {Integer}                  - the number of ms a fade on this notification will last.
-                 */
                 var setDuration = function(providedDuration) {
                     var duration = providedDuration || options.duration;
                     return angular.isNumber(duration) ? duration : 3500;
                 };
 
-                /**
-                 * Sets our notification's sticky state, forcing the user to dismiss it when enabled.
-                 *
-                 * @param {Bool} providedSticky - boolean on whether or not sticky state should be enabled.
-                 */
                 var setSticky = function(providedSticky) {
                     var sticky = providedSticky || options.sticky;
                     return sticky ? true : false;
                 };
 
-                /**
-                 * Resets our notification classes and message.
-                 */
                 var notifyReset = function() {
                     notifyScope.ngNotify = {
                         notifyClass: '',
-                        notifyMessage: ''
+                        notifyMessage: '',
+                        isLoading: false
                     };
                 };
 
-                /**
-                 * Dismisses our notification when called, attached to scope for ngCLick event to trigger.
-                 *
-                 */
                 notifyScope.dismiss = function() {
-                    el[0].classList.remove(setPosition(userOpts.position));
-                    // $timeout(function() {
-                        notifyReset();
-                    // }, 500);
+                    notifyReset();
                 };
 
 
@@ -154,8 +128,6 @@
 
                 /**
                  * Our primary object containing all public API methods and allows for all our functionality to be invoked.
-                 *
-                 * @type {Object}
                  */
                 var notifyObject = {
 
@@ -253,15 +225,6 @@
                         }, 1);
                     },
 
-                    unload: function() {
-                        $interval.cancel(notifyInterval);
-                        $timeout.cancel(notifyTimeout);
-
-                        notifyScope.ngNotify = notifyScope.ngNotify || {};
-                        notifyScope.ngNotify.isLoading = false;
-                        notifyScope.ngNotify.notifyClass = '';
-                        notifyScope.ngNotify.notifyMessage = '';
-                    },
 
                     // User customizations...
 

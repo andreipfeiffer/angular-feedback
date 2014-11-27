@@ -115,9 +115,5 @@ app.controller('MainCtrl', ['$scope', 'ngNotify',
         $scope.setLoader = function() {
             ngNotify.load();
         };
-
-        $scope.unsetLoader = function() {
-            ngNotify.unload();
-        };
     }
 ]);
