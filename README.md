@@ -1,4 +1,4 @@
-# ng-notify-drew
+# feedback
 
 This is a personal edit of the ng-notify service, by matowens. [Demo](http://andreipfeiffer.github.io/ng-notify-drew/)
 
