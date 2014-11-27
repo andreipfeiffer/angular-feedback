@@ -90,7 +90,15 @@
                 };
 
                 notifyScope.dismiss = function() {
-                    notifyReset();
+                    if ( notifyScope.ngNotify.isLoading ) {
+                        notifyScope.ngNotify.notifyClass += ' ngn-unloading';
+                    } else {
+                        notifyScope.ngNotify.notifyClass += ' ngn-contract';
+                    }
+
+                    notifyDismiss = $timeout(function() {
+                        notifyReset();
+                    }, 500);
                 };
 
 
@@ -154,10 +162,7 @@
                     },
 
                     dismiss: function() {
-                        notifyScope.ngNotify.notifyClass += ' ngn-unloading';
-                        notifyDismiss = $timeout(function() {
-                            notifyScope.dismiss();
-                        }, 500);
+                        notifyScope.dismiss();
                     },
 
                     load: function() {
