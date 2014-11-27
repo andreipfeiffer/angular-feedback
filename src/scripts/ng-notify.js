@@ -24,12 +24,12 @@
                 var userOpts = {};
 
                 var types = {
-                    infoClass: 'ngn-info',
-                    errorClass: 'ngn-error',
-                    successClass: 'ngn-success',
-                    warnClass: 'ngn-warn',
-                    grimaceClass: 'ngn-grimace',
-                    neutralClass: 'ngn-neutral'
+                    infoClass: 'fdb-info',
+                    errorClass: 'fdb-error',
+                    successClass: 'fdb-success',
+                    warnClass: 'fdb-warn',
+                    grimaceClass: 'fdb-grimace',
+                    neutralClass: 'fdb-neutral'
                 };
 
                 var timeoutAutoDismiss;
@@ -37,9 +37,9 @@
 
                 var feedbackScope = $rootScope.$new();
                 var tpl = $compile(
-                    '<div class="ngn" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
-                        '<span class="ngn-message" ng-if="!isLoading">{{ message }}</span>' +
-                        '<span class="ngn-spinner" ng-if="isLoading"></span>' +
+                    '<div class="fdb" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
+                        '<span class="fdb-message" ng-if="!isLoading">{{ message }}</span>' +
+                        '<span class="fdb-spinner" ng-if="isLoading"></span>' +
                     '</div>'
                 )(feedbackScope);
 
@@ -68,9 +68,9 @@
 
                 feedbackScope.dismiss = function() {
                     if ( feedbackScope.isLoading ) {
-                        feedbackScope.feedbackClass += ' ngn-unloading';
+                        feedbackScope.feedbackClass += ' fdb-unloading';
                     } else {
-                        feedbackScope.feedbackClass += ' ngn-contract';
+                        feedbackScope.feedbackClass += ' fdb-contract';
                     }
 
                     timeoutDismiss = $timeout(function() {
@@ -114,8 +114,8 @@
                         var sticky = setSticky(userOpts.sticky);
                         var duration = setDuration(userOpts.duration);
                         var c = setType(userOpts.type) + ' ';
-                        c += sticky ? ' ngn-sticky' : '';
-                        c += ' ngn-animate';
+                        c += sticky ? ' fdb-sticky' : '';
+                        c += ' fdb-animate';
 
                         feedbackScope.feedbackClass = '';
                         feedbackScope.isLoading = false;
@@ -136,7 +136,7 @@
                         $timeout.cancel(timeoutAutoDismiss);
                         $timeout.cancel(timeoutDismiss);
 
-                        var c = setType('neutral') + ' ' + ' ngn-loading';
+                        var c = setType('neutral') + ' ' + ' fdb-loading';
 
                         feedbackScope.feedbackClass = '';
                         feedbackScope.message = '';

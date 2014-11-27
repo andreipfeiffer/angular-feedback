@@ -1,4 +1,4 @@
-.ngn {
+.fdb {
   color: white;
   cursor: default;
   display: block;
@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.ngn-loading {
+.fdb-loading {
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -43,21 +43,21 @@
   -webkit-animation-timing-function: cubic-bezier(.05,.44,0,.99);
   animation-timing-function: cubic-bezier(.05,.44,0,.99);
 }
-.ngn-unloading {
+.fdb-unloading {
   -webkit-animation-name: slideOut;
   animation-name: slideOut;
   -webkit-animation-timing-function: cubic-bezier(.7,.08,.93,.49);
   animation-timing-function: cubic-bezier(.7,.08,.93,.49);
 }
 
-.ngn-message {
+.fdb-message {
   white-space: pre;
   text-overflow: ellipsis;
   overflow: hidden;
   display: block;
 }
 
-.ngn-animate {
+.fdb-animate {
   -webkit-animation-name: animateExpand;
   animation-name: animateExpand;
   -webkit-animation-duration: 0.5s;
@@ -67,22 +67,22 @@
   -webkit-animation-timing-function: cubic-bezier(.37,.86,.58,.95);
   animation-timing-function: cubic-bezier(.37,.86,.58,.95);
 }
-.ngn-contract {
+.fdb-contract {
   -webkit-animation-name: animateContract;
   animation-name: animateContract;
 }
 
 
 /* Themes - Default - Pure */
-.ngn-info { background-color: #0e90d2; }
-.ngn-error { background-color: #dd514c; }
-.ngn-success { background-color: #5eb95e; }
-.ngn-warn { background-color: #f37b1d; }
-.ngn-grimace { background-color: #8058a5; }
-.ngn-neutral { background-color: #ffffff; }
+.fdb-info { background-color: #0e90d2; }
+.fdb-error { background-color: #dd514c; }
+.fdb-success { background-color: #5eb95e; }
+.fdb-warn { background-color: #f37b1d; }
+.fdb-grimace { background-color: #8058a5; }
+.fdb-neutral { background-color: #ffffff; }
 
 
-.ngn-spinner {
+.fdb-spinner {
   position: relative;
   text-indent: -9999em;
   border-top: 5px solid transparent;
@@ -92,8 +92,8 @@
   -webkit-animation: spinAnimation 0.5s infinite linear;
   animation: spinAnimation 0.5s infinite linear;
 }
-  .ngn-spinner,
-  .ngn-spinner:after {
+  .fdb-spinner,
+  .fdb-spinner:after {
     border-radius: 50%;
     width: 26px;
     height: 26px;
