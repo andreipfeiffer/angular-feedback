@@ -11,8 +11,8 @@ app.controller('MainCtrl', ['$scope', 'feedback',
         */
         // Demo notifications...
 
-        $scope.notify = function(notify) {
-            switch(notify) {
+        $scope.notify = function(type) {
+            switch(type) {
                 case 'success':
                     feedback.notify('You have successfully logged in!', {
                         type: 'success'

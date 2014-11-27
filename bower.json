@@ -1,22 +1,22 @@
 {
-  "name": "ng-notify",
-  "version": "0.5.0",
+  "name": "feedback",
+  "version": "0.6.0",
   "authors": [
-    "Mat Owens <mat@peglegg.net>"
+    "Mat Owens <mat@peglegg.net>",
+    "Andrei Pfeiffer <andrei@upsidedown.ro>"
   ],
-  "description": "A simple, lightweight module for displaying notifications in your AngularJS app.",
+  "description": "A simple, lightweight module for displaying notifications and loaders in your AngularJS app.",
   "main": [
-        "./src/scripts/ng-notify.js",
-        "./src/styles/ng-notify.css"
+        "./src/scripts/feedback.js",
+        "./src/styles/feedback.css"
   ],
   "keywords": [
     "AngularJS",
-    "App",
     "notify",
-    "Provider"
+    "loader"
   ],
   "license": "MIT",
-  "homepage": "http://matowens.github.com/ng-notify",
+  "homepage": "http://andreipfeiffer.github.io/feedback/",
   "ignore": [
     "**/.*",
     "node_modules",
