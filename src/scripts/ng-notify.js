@@ -66,7 +66,7 @@
                     '<div class="ngn" ng-class="ngNotify.notifyClass" ng-click="!ngNotify.isLoading && dismiss()">' +
                         // '<span class="ngn-dismiss">&times;</span>' +
                         '<span class="ngn-message" ng-if="!ngNotify.isLoading">{{ ngNotify.notifyMessage }}</span>' +
-                        '<span class="b-loading" ng-if="ngNotify.isLoading"></span>' +
+                        '<span class="ngn-spinner" ng-if="ngNotify.isLoading"></span>' +
                     '</div>'
                 )(notifyScope);
 
