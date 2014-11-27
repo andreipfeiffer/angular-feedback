@@ -46,6 +46,7 @@
 
                 var notifyTimeout;
                 var notifyInterval;
+                var notifyDismiss;
 
                 // Template and scope...
 
@@ -113,6 +114,7 @@
 
                         $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
+                        $timeout.cancel(notifyDismiss);
 
                         if (typeof userOpt === 'object') {
                             userOpts = {
@@ -140,13 +142,11 @@
                         notifyScope.ngNotify.notifyMessage = message;
                         notifyScope.ngNotify.isLoading = false;
 
-                        // el.fadeIn(200, function() {
-                            if (!sticky) {
-                                notifyTimeout = $timeout(function() {
-                                    notifyScope.dismiss();
-                                }, duration);
-                            }
-                        // });
+                        if (!sticky) {
+                            notifyTimeout = $timeout(function() {
+                                notifyScope.dismiss();
+                            }, duration);
+                        }
 
                         $timeout(function() {
                             notifyScope.ngNotify.notifyClass = notifyClass;
@@ -154,12 +154,16 @@
                     },
 
                     dismiss: function() {
-                        notifyScope.dismiss();
+                        notifyScope.ngNotify.notifyClass += ' ngn-unloading';
+                        notifyDismiss = $timeout(function() {
+                            notifyScope.dismiss();
+                        }, 500);
                     },
 
                     load: function() {
                         $interval.cancel(notifyInterval);
                         $timeout.cancel(notifyTimeout);
+                        $timeout.cancel(notifyDismiss);
 
                         var notifyClass = setType('neutral') + ' ' +
                                           setPosition() + ' '+
