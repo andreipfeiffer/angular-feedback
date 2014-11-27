@@ -29,14 +29,14 @@ module.exports = function(grunt) {
         cssmin: {
             build: {
                 files: {
-                    'dist/ng-notify.min.css': 'src/styles/ng-notify.css'
+                    'dist/feedback.min.css': 'src/styles/feedback.css'
                 }
             },
 
             demo: {
                 files: {
                     '_gh-pages/demo.min.css': [
-                        'src/styles/ng-notify.css',
+                        'src/styles/feedback.css',
                         'demo/demo.css'
                     ]
                 }
@@ -66,14 +66,14 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 files: {
-                    'dist/ng-notify.min.js': 'src/**/*.js'
+                    'dist/feedback.min.js': 'src/**/*.js'
                 }
             },
             demo: {
                 files: {
                     '_gh-pages/demo.min.js': [
                         'bower_components/angular/angular.js',
-                        'src/scripts/ng-notify.js',
+                        'src/scripts/feedback.js',
                         'demo/demo.js'
                     ]
                 }
