@@ -45,15 +45,14 @@ p {
     margin: 0 auto;
 }
 
+.header a,
 p a {
     color: #0e90d2;
     text-decoration: none;
 }
-
+.header a:hover,
 p a:hover {
-    animation: mowens-color 150ms linear infinite;
-    -moz-animation: mowens-color 150ms linear infinite;
-    -webkit-animation: mowens-color 150ms linear infinite;
+    text-decoration: underline;
 }
 
 ul {
@@ -64,7 +63,7 @@ ul {
 
 li {
     display: inline-block;
-}   
+}
 
 .spacer {
     display: block;
