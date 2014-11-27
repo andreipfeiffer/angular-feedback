@@ -143,9 +143,9 @@
                  */
                 notifyScope.dismiss = function() {
                     el[0].classList.remove(setPosition(userOpts.position));
-                    $timeout(function() {
+                    // $timeout(function() {
                         notifyReset();
-                    }, 400);
+                    // }, 500);
                 };
 
                 var el = tpl;
@@ -213,7 +213,7 @@
                         // so it re-starts everytime we call the service
                         $timeout(function() {
                             notifyScope.ngNotify.notifyClass = notifyClass.replace('ngn-animate', '');
-                        }, 400);
+                        }, 300);
 
                         // el.fadeIn(200, function() {
                             if (!sticky) {
