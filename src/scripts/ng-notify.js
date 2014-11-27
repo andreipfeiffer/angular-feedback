@@ -103,7 +103,7 @@
                  */
                 var setPosition = function(providedPosition) {
                     var position = providedPosition || options.position;
-                    return positions[position] || positions.bottom;
+                    return positions[position] || positions.top;
                 };
 
                 /**
@@ -194,6 +194,7 @@
                             userOpts.type = userOpt;
                         }
 
+
                         var sticky = setSticky(userOpts.sticky);
                         var duration = setDuration(userOpts.duration);
                         var notifyClass = setType(userOpts.type) + ' ' +
@@ -201,12 +202,18 @@
 
                         notifyClass += setPosition(userOpts.position);
                         notifyClass += sticky ? ' ngn-sticky' : '';
-                        // notifyClass += ' is-animated';
+                        notifyClass += ' ngn-animate';
 
                         notifyScope.ngNotify = {
                             notifyClass: notifyClass,
                             notifyMessage: message
                         };
+
+                        // remove the animation class, after the animation ended
+                        // so it re-starts everytime we call the service
+                        $timeout(function() {
+                            notifyScope.ngNotify.notifyClass = notifyClass.replace('ngn-animate', '');
+                        }, 400);
 
                         // el.fadeIn(200, function() {
                             if (!sticky) {
