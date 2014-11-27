@@ -15,8 +15,9 @@ html, body {
 .header {
     border-bottom: 1px solid #FFF;
     margin: 0;
-    padding: 75px 0 100px;
+    padding: 2em 0 4em;
     text-align: center;
+    background-color: #eaeaea;
 }
 
 h1 {
@@ -65,7 +66,7 @@ li {
 
 .spacer {
     display: block;
-    max-width: 200px;
+    max-width: 50%;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #DDD;
     width: 100%;
@@ -95,19 +96,11 @@ li {
 
 .main {
     border-top: 1px solid #AAA;
+    padding-top: 3em;
 }
 
 .foot {
-    margin-bottom: 200px;
-}
-
-.git-share {
-    margin-right: 5px
-}
-
-.twit-share {
-    margin-left: 10px;
-    width: 95px;
+    margin-bottom: 10em;
 }
 
 .new {
