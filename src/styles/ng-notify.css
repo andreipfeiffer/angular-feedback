@@ -3,7 +3,6 @@
   color: white;
   cursor: default;
   display: block;
-  font-size: 1.3em;
   left: 0;
   /*leave 1em margins left/right*/
   width: calc(100% - 2em);
@@ -70,52 +69,6 @@
   animation-timing-function: cubic-bezier(.37,.86,.58,.95);
 }
 
-/*.ngn-dismiss {
-  background-color: #333333;
-  border-radius: 15px;
-  box-shadow: inset 2px 2px 7px 2px black;
-  color: #dddddd;
-  cursor: pointer;
-  display: none;
-  font-size: 1.25em;
-  font-weight: bold;
-  height: 30px;
-  line-height: 30px;
-  opacity: 0.2;
-  position: absolute;
-  right: 45px;
-  text-shadow: 1px 1px 5px black;
-  width: 30px;
-}
-
-.ngn-sticky .ngn-dismiss {
-  display: block;
-}
-
-.ngn-dismiss:hover {
-  background-color: black;
-}
-
-.ngn-dismiss:active {
-  background-color: #666666;
-}*/
-
-/* Reduce notification size for mobile */
-@media only screen and (max-width: 480px) {
-  .ngn {
-    font-size: 1em;
-    padding: 12px 25px;
-  }
-
-  /*.ngn-dismiss {
-    font-size: 1em;
-    height: 20px;
-    line-height: 20px;
-    right: 5px;
-    top: 5px;
-    width: 20px;
-  }*/
-}
 
 /* Themes - Default - Pure */
 .ngn-info { background-color: #0e90d2; }
