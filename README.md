@@ -1,9 +1,10 @@
 # angular-feedback
 
-This is a personal edit of the ng-notify service, by matowens.
+A simple, lightweight module for displaying notifications and loaders in your AngularJS app.
 
 [View Demo](http://andreipfeiffer.github.io/feedback/)
 
+This is a personal edit of the ng-notify service, by matowens.
 For the original, please see: [https://github.com/matowens/ng-notify](https://github.com/matowens/ng-notify)
 
 ## Requirements
