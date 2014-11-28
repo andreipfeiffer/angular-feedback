@@ -49,7 +49,6 @@ To dismiss a loader, or a notification, just use the `dismiss` method.
     feedback.dismiss();
 
 # Advanced Usage
-==============
 
 ### Set Default Configuration
 
