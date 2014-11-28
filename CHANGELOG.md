@@ -1,5 +1,11 @@
 #angular-feedback changelog
 
+##v0.8.0
+- change name of the package to: `angular-feedback`
+- write the README.md file
+- fill the CHANGELOG.md file
+- register the module as a `bower` package
+
 ##v0.7.6
 - just refactor & simplify code
 

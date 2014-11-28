@@ -1,6 +1,6 @@
 {
-  "name": "feedback",
-  "version": "0.7.6",
+  "name": "angular-feedback",
+  "version": "0.8.0",
   "authors": [
     "Mat Owens <mat@peglegg.net>",
     "Andrei Pfeiffer <andrei@upsidedown.ro>"
@@ -19,7 +19,7 @@
     "loader"
   ],
   "license": "MIT",
-  "homepage": "http://andreipfeiffer.github.io/feedback/",
+  "homepage": "http://andreipfeiffer.github.io/angular-feedback/",
   "ignore": [
     "**/.*",
     "node_modules",
