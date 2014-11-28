@@ -86,6 +86,18 @@ This will give the user the option of closing the notification themselves. If yo
 
 # Methods
 
+#### config( options )
+Sets default settings for all notifications to take into account when displaying.
+- **options** - *object* - an object of options that overrides the default settings.
+    - **type**: *string* - *optional* - sets the default notification type when a type isn't explicitly set.
+        - info *(default)*
+        - error
+        - success
+        - warn
+        - grimace
+    - **duration**: *integer* - *optional* - the duration the notification stays visible to the user, in milliseconds.
+    - **sticky**: *bool* - *optional* - determines whether or not the message will fade at the end of the duration or if the message will persist until the user dismisses it themselves.  when true, duration will not be set, even if it has a value. *(false by default)*.
+
 #### notify( message, [type] )
 Displays a notification message and sets the formatting/behavioral options for this one notification.
 - **message**: *string* - *required* - the message to display in your notification.
