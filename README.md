@@ -55,7 +55,7 @@ To dismiss a loader, or a notification, just use the `dismiss` method.
 You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [config method](#config-options-) below.)
 
     feedback.config({
-        type: 'info',
+        type: 'success',
         duration: 3000,
         sticky: false
     });
@@ -65,8 +65,8 @@ You can override the default options for all notifications by using the `config`
 You can also pass an object of options to individual notifications. You can pass through any combination of the available options here as well. For example:
 
     feedback.notify('Your first message.', {
-        duration: 3000,
-        sticky: false
+        type: 'warn',
+        duration: 1000
     });
 
 ### Sticky Notifications
