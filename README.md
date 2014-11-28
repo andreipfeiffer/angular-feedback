@@ -7,11 +7,11 @@ A simple, lightweight module for displaying notifications and loaders in your An
 This is a personal edit of the __ng-notify__ service, by __matowens__.
 For the original, please see: [https://github.com/matowens/ng-notify](https://github.com/matowens/ng-notify)
 
-## Requirements
+### Requirements
 
 AngularJS is the only dependency.  All animations are CSS-based.
 
-## Installation
+### Installation
 
 You can install using Bower.
 
@@ -20,7 +20,7 @@ You can install using Bower.
 Or, you can also download source files straight from this repo, they're located in the `dist` dir.
 Just include the minified version of both `.js` and `.css` files.
 
-## Usage
+# Usage
 
 After including **feedback.min.js** and **feedback.min.css**, inject the `feedback` provider into your project.
 
