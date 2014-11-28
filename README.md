@@ -96,7 +96,7 @@ Sets default settings for all notifications to take into account when displaying
         - warn
         - grimace
     - **duration**: *integer* - *optional* - the duration the notification stays visible to the user, in milliseconds.
-    - **sticky**: *bool* - *optional* - determines whether or not the message will fade at the end of the duration or if the message will persist until the user dismisses it themselves.  when true, duration will not be set, even if it has a value. *(false by default)*.
+    - **sticky**: *boolean* - *optional* - determines whether or not the message will fade at the end of the duration or if the message will persist until the user dismisses it themselves. When true, duration will not be set, even if it has a value. *(false by default)*.
 
 #### notify( message, [type] )
 Displays a notification message and sets the formatting/behavioral options for this one notification.
