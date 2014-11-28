@@ -3,6 +3,7 @@ html, body {
     color: #222;
     margin: 0;
     font-family: Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 /* Fix for clickable elements without href */
