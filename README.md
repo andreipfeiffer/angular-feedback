@@ -28,7 +28,7 @@ After including **feedback.min.js** and **feedback.min.css**, inject the `feedba
 
 Now you can trigger notifications and loaders from anywhere in your app.
 
-### Notifications
+### 1. Notifications
 
 To display a notification, just use the `notify` method.
 
@@ -38,10 +38,20 @@ To specify the **type** of notification to display, provide the optional **type*
 
     feedback.notify('Your error message goes here!', 'error');
 
-Advanced Usage
+### 2. Loaders
+
+To display a loader, just use the `load` method.
+
+    feedback.load();
+
+To dismiss a loader, or a notification, just use the `dismiss` method.
+
+    feedback.dismiss();
+
+# Advanced Usage
 ==============
 
-###Default Configuration
+### Set Default Configuration
 
 You can override the default options for all notifications by using the `config` method.  None of these options are required. (For available options, check the [definitions](#definitions) below.)
 
