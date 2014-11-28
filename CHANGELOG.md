@@ -24,6 +24,7 @@
 - make notifications re-start animation, when a notification is triggered while other is displayed (using $timeout)
 
 ##v0.6.0
+- forked the project from `matowens/ng-notify`
 - **new feature**: added loader feature
 - **new feature**: added CSS-based animations
 - cleanup unused code
