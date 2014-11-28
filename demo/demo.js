@@ -88,23 +88,23 @@ app.controller('MainCtrl', ['$scope', 'feedback',
         };
 
         $scope.isActive = function() {
-            alert( feedback.isActive() );
+            console.log( feedback.isActive() );
         };
 
         $scope.isLoading = function() {
-            alert( feedback.isLoading() );
+            console.log( feedback.isLoading() );
         };
 
         $scope.isSticky = function() {
-            alert( feedback.isSticky() );
+            console.log( feedback.isSticky() );
         };
 
         $scope.getType = function() {
-            alert( feedback.getType() );
+            console.log( feedback.getType() );
         };
 
         $scope.getMessage = function() {
-            alert( feedback.getMessage() );
+            console.log( feedback.getMessage() );
         };
     }
 ]);
