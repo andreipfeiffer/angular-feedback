@@ -34,7 +34,7 @@ To display a notification, just use the `notify` method.
 
     feedback.notify('Your notification message goes here!');
 
-To specify the **type** of notification to display, provide the optional **type** param. (For available types, check the [definitions](#definitions) below.)
+To specify the **type** of notification to display, provide the optional **type** param. (For available types, check the [methods](#methods) below.)
 
     feedback.notify('Your error message goes here!', 'error');
 
@@ -52,7 +52,7 @@ To dismiss a loader, or a notification, just use the `dismiss` method.
 
 ### Set Default Configuration
 
-You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [definitions](#definitions) below.)
+You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [config method](#config) below.)
 
     feedback.config({
         type: 'info',
@@ -62,7 +62,7 @@ You can override the default options for all notifications by using the `config`
 
 ### Individual Configurations
 
-You can also pass an object of options to individual notifications. You can pass through any combination of the available options here as well. (For available options, check the [definitions](#definitions) below.)  For example:
+You can also pass an object of options to individual notifications. You can pass through any combination of the available options here as well. For example:
 
     feedback.notify('Your first message.', {
         duration: 3000,
@@ -84,12 +84,10 @@ This will give the user the option of closing the notification themselves. If yo
 **NOTE**
 *Any time a notification is set to sticky, the duration attribute will be ignored since the notification will not be automatically fading out.*
 
-# Definitions
+# Methods
 
-### Methods
-
-#### notify(message, [type]);
-displays a notification message and sets the formatting/behavioral options for this one notification.
+### notify( message, [type] );
+Displays a notification message and sets the formatting/behavioral options for this one notification.
 - **message**: *string* - *required* - the message to display in your notification.
 - **type**: *string* - *optional* - the type of notification to display.
     - info *(default)*
@@ -97,3 +95,9 @@ displays a notification message and sets the formatting/behavioral options for t
     - success
     - warn
     - grimace
+
+### load();
+Displays a loader element.
+
+### dismiss();
+Fades away and removes any notification or loader.
