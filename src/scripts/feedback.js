@@ -18,7 +18,7 @@
                 var options = {
                     duration: 3000,
                     type: 'info',
-                    sticky: true
+                    sticky: false
                 };
 
                 var userOpts = {};
@@ -157,6 +157,18 @@
 
                     isLoading: function() {
                         return !!feedbackScope.isLoading;
+                    },
+
+                    isSticky: function() {
+                        return setSticky(userOpts.sticky);
+                    },
+
+                    getType: function() {
+                        return setType(userOpts.type);
+                    },
+
+                    getMessage: function() {
+                        return feedbackScope.message;
                     },
 
                     addType: function(typeName, typeClass) {
