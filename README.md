@@ -17,7 +17,7 @@ You can install using Bower.
 
     bower install angular-feedback --save
 
-Or, you can also download source files straight from this repo, they're located in the `dist` dir.
+Or, you can download source files straight from this repo, they're located in the `dist` folder.
 Just include the minified version of both `.js` and `.css` files.
 
 # Usage
