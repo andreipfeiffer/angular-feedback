@@ -81,12 +81,12 @@ This will give the user the option of closing the notification themselves. If yo
     
     feedback.dismiss();
 
-**NOTE**
+**NOTE:**
 *Any time a notification is set to sticky, the duration attribute will be ignored since the notification will not be automatically fading out.*
 
 # Methods
 
-### notify( message, [type] )
+#### notify( message, [type] )
 Displays a notification message and sets the formatting/behavioral options for this one notification.
 - **message**: *string* - *required* - the message to display in your notification.
 - **type**: *string* - *optional* - the type of notification to display.
@@ -96,25 +96,25 @@ Displays a notification message and sets the formatting/behavioral options for t
     - warn
     - grimace
 
-### load()
+#### load()
 Displays a loader element.
 
-### dismiss()
+#### dismiss()
 Fades away and removes any notification or loader.
 
 # Getter helpers
 
-### isActive()
+#### isActive()
 Returns `true` if there is any type of feedback displayed (notification of loader). Otherwise, returns `false`.
 
-### isLoading()
+#### isLoading()
 Returns `true` if there is loader displayed. Otherwise, returns `false`.
 
-### isSticky()
+#### isSticky()
 Returns the value of the *sticky* option. Defaults to `undefined` if a loader is active, or no feedback active.
 
-### getType()
+#### getType()
 Returns the value of the *type* option. Defaults to `undefined` if a loader is active, or no feedback active.
 
-### getMessage()
+#### getMessage()
 Returns the text message. Defaults to `''`.
