@@ -15,7 +15,7 @@
 
             function($document, $compile, $rootScope, $timeout) {
 
-                var options = {
+                var defaults = {
                     duration: 3000,
                     type: 'info',
                     sticky: false
@@ -51,18 +51,8 @@
                 $document.find('body').append(tpl);
 
                 var setType = function(providedType) {
-                    var type = (providedType || options.type) + 'Class';
+                    var type = (providedType || defaults.type) + 'Class';
                     return types[type] || types.infoClass;
-                };
-
-                var setDuration = function(providedDuration) {
-                    var duration = providedDuration || options.duration;
-                    return angular.isNumber(duration) ? duration : 3500;
-                };
-
-                var setSticky = function(providedSticky) {
-                    var sticky = providedSticky || options.sticky;
-                    return sticky ? true : false;
                 };
 
                 var reset = function() {
@@ -70,6 +60,8 @@
                     feedbackScope.feedbackClass = '';
                     feedbackScope.message = '';
                     feedbackScope.isLoading = false;
+                    delete feedbackScope.type;
+                    delete feedbackScope.sticky;
                 };
 
                 feedbackScope.dismiss = function() {
@@ -94,10 +86,11 @@
 
                     config: function(params) {
                         params = params || {};
-                        angular.extend(options, params);
+                        angular.extend(defaults, params);
                     },
 
                     notify: function(message, userOpt) {
+                        var options = {};
 
                         if (!message) {
                             return;
@@ -107,31 +100,27 @@
                         $timeout.cancel(timeoutDismiss);
 
                         if (typeof userOpt === 'object') {
-                            userOpts = {
-                                type: userOpt.type || undefined,
-                                duration: userOpt.duration || undefined,
-                                sticky: userOpt.sticky || undefined
-                            };
+                            options = angular.extend( {}, defaults, userOpt );
                         } else {
-                            userOpts.type = userOpt;
+                            options = angular.extend( {}, defaults );
+                            options.type = userOpt;
                         }
 
-
-                        var sticky = setSticky(userOpts.sticky);
-                        var duration = setDuration(userOpts.duration);
-                        var c = setType(userOpts.type) + ' ';
-                        c += sticky ? ' fdb-sticky' : '';
+                        var c = setType(options.type) + ' ';
+                        c += options.sticky ? ' fdb-sticky' : '';
                         c += ' fdb-expand';
 
                         feedbackScope.isActive = true;
                         feedbackScope.feedbackClass = c;
                         feedbackScope.isLoading = false;
                         feedbackScope.message = message;
+                        feedbackScope.type = options.type;
+                        feedbackScope.sticky = options.sticky;
 
                         if (!sticky) {
                             timeoutAutoDismiss = $timeout(function() {
                                 feedbackScope.dismiss();
-                            }, duration);
+                            }, options.duration);
                         }
                     },
 
@@ -145,6 +134,8 @@
                         feedbackScope.feedbackClass = c;
                         feedbackScope.message = '';
                         feedbackScope.isLoading = true;
+                        delete feedbackScope.type;
+                        delete feedbackScope.sticky;
                     },
 
                     dismiss: function() {
@@ -160,11 +151,11 @@
                     },
 
                     isSticky: function() {
-                        return setSticky(userOpts.sticky);
+                        return !!feedbackScope.sticky;
                     },
 
                     getType: function() {
-                        return setType(userOpts.type);
+                        return feedbackScope.type;
                     },
 
                     getMessage: function() {
