@@ -15,7 +15,7 @@ AngularJS is the only dependency.  All animations are CSS-based.
 
 You can install using Bower.
 
-  bower install angular-feedback --save
+    bower install angular-feedback --save
 
 Or, you can also download source files straight from this repo, they're located in the `dist` dir.
 Just include the minified version of both `.js` and `.css` files.
