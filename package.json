@@ -1,6 +1,6 @@
 {
   "name": "feedback",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "A simple, lightweight module for displaying notifications & loaders in your AngularJS app",
   "main": "./src/scripts/feedback.js",
   "scripts": {
