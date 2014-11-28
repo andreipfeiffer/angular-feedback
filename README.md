@@ -53,51 +53,39 @@ To dismiss a loader, or a notification, just use the `dismiss` method.
 
 ### Set Default Configuration
 
-You can override the default options for all notifications by using the `config` method.  None of these options are required. (For available options, check the [definitions](#definitions) below.)
+You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [definitions](#definitions) below.)
 
-    ngNotify.config({
-        theme: 'pure',
-        position: 'bottom',
-        duration: 3000,
+    feedback.config({
         type: 'info',
+        duration: 3000,
         sticky: false
     });
 
-###Individual Configurations
+### Individual Configurations
 
-You can also pass an object of options to individual notifications.  You can pass through any combination of our available options here as well.  (For available options, check the [definitions](#definitions) below.)  For example:
+You can also pass an object of options to individual notifications. You can pass through any combination of the available options here as well. (For available options, check the [definitions](#definitions) below.)  For example:
 
-    ngNotify.set('Your first message.', {
-        position: 'top',
+    feedback.notify('Your first message.', {
+        duration: 3000,
+        sticky: false
+    });
+
+### Sticky Notifications
+
+Sticky notifications allow you to set a persistant notification that doesn't fade away. To do this, simply set the `sticky` attribute to true:
+
+    feedback.notify('This is sticky.', {
         sticky: true
     });
 
-    ngNotify.set('Your second message.', {
-        type: 'error',
-        duration: 2000
-    });
-
-    ngNotify.set('Your third message.', 'error'); // Original use case still works, too.
-
-    ngNotify.set('Your fourth message.', {
-        theme: 'pitchy'
-    });
-
-###Sticky Notifications
-
-Sticky notifications allow you to set a perisistant notification that doesn't fade away.  To do this, simply set the `sticky` attribute to true:
-
-    ngNotify.set('This is sticky.', {
-        sticky: true
-    });
-
-This will give the user the option of closing the notification themselves.  If you need to dismiss a notification manually, you can do so with the `dismiss` method like this:
+This will give the user the option of closing the notification themselves. If you need to dismiss a notification manually, you can do so with the `dismiss` method like this:
     
-    ngNotify.dismiss();
+    feedback.dismiss();
 
+**NOTE**
 *Any time a notification is set to sticky, the duration attribute will be ignored since the notification will not be automatically fading out.*
 
-## Definitions
+# Definitions
 
 ### Methods
 
