@@ -35,7 +35,8 @@
   border-radius: 1.5em;
   display: inline-block;
   box-sizing: border-box;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .7);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.6);
+  border: 1px rgba(0,0,0,.1) solid;
 }
 
 .fdb-loading {
@@ -45,7 +46,8 @@
   padding: 7px;
   box-sizing: content-box;
 
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.3);
+  border: 0;
 
   -webkit-animation-name: slideIn;
   animation-name: slideIn;
