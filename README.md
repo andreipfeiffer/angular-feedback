@@ -52,7 +52,7 @@ To dismiss a loader, or a notification, just use the `dismiss` method.
 
 ### Set Default Configuration
 
-You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [config method](#config) below.)
+You can override the default options for all notifications by using the `config` method. None of these options are required. (For available options, check the [config method](#config-options-) below.)
 
     feedback.config({
         type: 'info',
