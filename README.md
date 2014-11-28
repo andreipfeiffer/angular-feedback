@@ -86,3 +86,17 @@ This will give the user the option of closing the notification themselves.  If y
     ngNotify.dismiss();
 
 *Any time a notification is set to sticky, the duration attribute will be ignored since the notification will not be automatically fading out.*
+
+## Definitions
+
+### Methods
+
+#### notify(message, [type]);
+displays a notification message and sets the formatting/behavioral options for this one notification.
+- **message**: *string* - *required* - the message to display in your notification.
+- **type**: *string* - *optional* - the type of notification to display.
+    - info *(default)*
+    - error
+    - success
+    - warn
+    - grimace
