@@ -12,7 +12,10 @@
   ],
   "keywords": [
     "AngularJS",
+    "feedback",
+    "notifications",
     "notify",
+    "spinner",
     "loader"
   ],
   "license": "MIT",
