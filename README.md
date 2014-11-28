@@ -112,7 +112,7 @@ Displays a notification message and sets the formatting/behavioral options for t
 Displays a loader element.
 
 #### dismiss()
-Fades away and removes any notification or loader.
+Manually removes any notification or loader, by fading them away. The animation is different, depending weather it's a loader or a notification.
 
 # Getter helpers
 
