@@ -151,6 +151,14 @@
                         feedbackScope.dismiss();
                     },
 
+                    isActive: function() {
+                        return !!feedbackScope.isActive;
+                    },
+
+                    isLoading: function() {
+                        return !!feedbackScope.isLoading;
+                    },
+
                     addType: function(typeName, typeClass) {
                         if (!typeName || !typeClass) { return; }
                         types[typeName + 'Class'] = typeClass;

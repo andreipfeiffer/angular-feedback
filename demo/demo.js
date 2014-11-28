@@ -86,5 +86,13 @@ app.controller('MainCtrl', ['$scope', 'feedback',
         $scope.setLoader = function() {
             feedback.load();
         };
+
+        $scope.isActive = function() {
+            alert( feedback.isActive() );
+        };
+
+        $scope.isLoading = function() {
+            alert( feedback.isLoading() );
+        };
     }
 ]);
