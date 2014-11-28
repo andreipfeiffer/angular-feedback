@@ -37,9 +37,11 @@
 
                 var feedbackScope = $rootScope.$new();
                 var tpl = $compile(
-                    '<div class="fdb" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
-                        '<span class="fdb-message" ng-if="!isLoading">{{ message }}</span>' +
-                        '<span class="fdb-spinner" ng-if="isLoading"></span>' +
+                    '<div class="fdb">' +
+                        '<div class="fdb-inner" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
+                            '<span class="fdb-message" ng-if="!isLoading">{{ message }}</span>' +
+                            '<span class="fdb-spinner" ng-if="isLoading"></span>' +
+                        '</div>' +
                     '</div>'
                 )(feedbackScope);
 
@@ -115,21 +117,17 @@
                         var duration = setDuration(userOpts.duration);
                         var c = setType(userOpts.type) + ' ';
                         c += sticky ? ' fdb-sticky' : '';
-                        c += ' fdb-animate';
+                        c += ' fdb-expand';
 
-                        feedbackScope.feedbackClass = '';
+                        feedbackScope.feedbackClass = c;
                         feedbackScope.isLoading = false;
+                        feedbackScope.message = message;
 
                         if (!sticky) {
                             timeoutAutoDismiss = $timeout(function() {
                                 feedbackScope.dismiss();
                             }, duration);
                         }
-
-                        $timeout(function() {
-                            feedbackScope.feedbackClass = c;
-                            feedbackScope.message = message;
-                        }, 50);
                     },
 
                     load: function() {
@@ -138,13 +136,9 @@
 
                         var c = setType('neutral') + ' ' + ' fdb-loading';
 
-                        feedbackScope.feedbackClass = '';
+                        feedbackScope.feedbackClass = c;
                         feedbackScope.message = '';
-
-                        $timeout(function() {
-                            feedbackScope.feedbackClass = c;
-                            feedbackScope.isLoading = true;
-                        }, 50);
+                        feedbackScope.isLoading = true;
                     },
 
                     dismiss: function() {
