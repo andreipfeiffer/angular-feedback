@@ -69,8 +69,18 @@ app.controller('MainCtrl', ['$scope', 'feedback',
             });
         };
 
-        $scope.dismissNotify = function() {
+        $scope.dismiss = function() {
             feedback.dismiss();
+        };
+
+        $scope.loadAndDismiss = function() {
+            feedback.load();
+            feedback.dismiss();
+        };
+
+        $scope.loadAndNotify = function() {
+            feedback.load();
+            feedback.notify('You have a new message in your inbox.');
         };
 
         $scope.setLoader = function() {
