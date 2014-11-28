@@ -93,27 +93,27 @@ module.exports = function(grunt) {
 
     - Lint JS
     - Clean old build
-    - Process styles 
-    - Process scripts 
+    - Process styles
+    - Process scripts
     - Process demo */
 
     grunt.registerTask('build', [
         'jshint',
-        // 'clean', 
-        // 'cssmin:build',
-        // 'uglify:build',
+        'clean',
+        'cssmin:build',
+        'uglify:build',
         'demo'
     ]);
 
     grunt.registerTask('demo', [
-        'processhtml', 
+        'processhtml',
         'htmlmin',
         'cssmin:demo',
         'uglify:demo'
     ]);
 
 
-    grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['jshint']);
     grunt.registerTask('dev', ['build', 'watch']);
 
 };
