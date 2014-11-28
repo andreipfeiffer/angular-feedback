@@ -40,7 +40,7 @@
                 feedbackScope.isActive = false;
 
                 var tpl = $compile(
-                    '<div class="fdb" ng-if="isActive">' +
+                    '<div class="fdb" ng-show="isActive">' +
                         '<div class="fdb-inner" ng-class="feedbackClass" ng-click="!isLoading && dismiss()">' +
                             '<span class="fdb-message" ng-if="!isLoading">{{ message }}</span>' +
                             '<span class="fdb-spinner" ng-if="isLoading"></span>' +
