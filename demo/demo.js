@@ -48,8 +48,8 @@ app.controller('MainCtrl', ['$scope', 'feedback',
         $scope.defaultType = 'info';
         $scope.defaultOptions = ['info', 'success', 'warn', 'error', 'grimace'];
 
-        $scope.sticky = true;
-        $scope.stickyOptions = [true, false];
+        $scope.sticky = false;
+        $scope.stickyOptions = [false, true];
 
         $scope.setDefaultType = function() {
             feedback.config({
@@ -93,6 +93,18 @@ app.controller('MainCtrl', ['$scope', 'feedback',
 
         $scope.isLoading = function() {
             alert( feedback.isLoading() );
+        };
+
+        $scope.isSticky = function() {
+            alert( feedback.isSticky() );
+        };
+
+        $scope.getType = function() {
+            alert( feedback.getType() );
+        };
+
+        $scope.getMessage = function() {
+            alert( feedback.getMessage() );
         };
     }
 ]);
