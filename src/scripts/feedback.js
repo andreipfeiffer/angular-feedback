@@ -117,7 +117,7 @@
                         feedbackScope.type = options.type;
                         feedbackScope.sticky = options.sticky;
 
-                        if (!sticky) {
+                        if ( !options.sticky ) {
                             timeoutAutoDismiss = $timeout(function() {
                                 feedbackScope.dismiss();
                             }, options.duration);
