@@ -55,6 +55,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: block;
+  line-height: 1;
 }
 
 .fdb-animate {
