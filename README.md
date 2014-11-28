@@ -11,7 +11,7 @@ For the original, please see: [https://github.com/matowens/ng-notify](https://gi
 
 AngularJS is the only dependency.  All animations are CSS-based.
 
-### Installation
+# Installation
 
 You can install using Bower.
 
