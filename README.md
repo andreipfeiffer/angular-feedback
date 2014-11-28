@@ -2,7 +2,7 @@
 
 A simple, lightweight module for displaying notifications and loaders in your AngularJS app.
 
-[View Demo](http://andreipfeiffer.github.io/feedback/)
+[View Demo](http://andreipfeiffer.github.io/angular-feedback/)
 
 This is a personal edit of the __ng-notify__ module, by __matowens__. For a list of changes, please see the [changes](#changes-to-ng-notify) section at the bottom.
 For the original module, please see: [https://github.com/matowens/ng-notify](https://github.com/matowens/ng-notify)
