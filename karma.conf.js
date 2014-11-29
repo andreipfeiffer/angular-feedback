@@ -15,9 +15,11 @@ module.exports = function(config) {
         files: [
             // vendors
             'bower_components/angular/angular.min.js',
+            // vendor helpers
+            'bower_components/angular-mocks/angular-mocks.js',
 
             // app
-            'src/scripts/*.js',
+            'src/**/*.js',
 
             // test specs
             'spec/*Spec.js'
