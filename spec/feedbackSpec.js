@@ -30,6 +30,32 @@
             expect( feedback.isLoading() ).toBeFalsy();
         }));
 
+        it('should set loader', inject(function(feedback) {
+            feedback.load();
+            expect( feedback.isActive() ).toBeTruthy();
+            expect( feedback.isLoading() ).toBeTruthy();
+        }));
+
+        it('should dismiss loader', inject(function(feedback, $timeout) {
+            feedback.load();
+            feedback.dismiss();
+
+            $timeout.flush();
+
+            expect( feedback.isActive() ).toBeFalsy();
+            expect( feedback.isLoading() ).toBeFalsy();
+        }));
+
+        it('should set default notification to "info"', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.notify( message );
+
+            expect( feedback.isActive() ).toBeTruthy();
+            expect( feedback.isLoading() ).toBeFalsy();
+            // expect( feedback.getType() ).toBe('info');
+            expect( feedback.getMessage() ).toBe( message);
+        }));
+
     });
 
 })();
