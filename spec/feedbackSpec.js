@@ -4,6 +4,9 @@
 
     describe('angular-feedback', function() {
 
+        beforeEach(module('angular-feedback'));
+
+        /*
         var feedbackProvider;
 
         beforeEach(function() {
@@ -20,6 +23,7 @@
             // This actually triggers the injection into fakeModule
             inject(function(){});
         });
+        */
 
         it('should be inactive by default', inject(function(feedback) {
             expect( feedback.isActive() ).toBeFalsy();
