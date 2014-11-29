@@ -135,9 +135,9 @@ Returns the text message. Defaults to `''`.
 
 Here is a list of the additions and removals from the original module:
 
-* **Removed the `position` option**. I felt it was something I didn't need anymore, since I have changed the position of the elements to center. A bottom variant, I didn't see feasible. And anyone can override the CSS, to adjust the placement and the styles to their needs.
-* **Removed the `theme` option**. Theming the module should be out of scope, from my point of view. The module should not bundle multiple themes.
+* **Removed the `position` option**. I felt it was something I didn't need anymore, since I have changed the position of the elements. Anyone can override the CSS, to adjust the placement and the styles to their needs.
+* **Removed the `theme` option**. Theming the module should be out of scope, from my point of view. The module should not bundle multiple themes. Theming is a presentational concept, so it should be controlled from CSS.
 * **Removed dismiss trigger**. I prefer to click the whole notification to dismiss.
+* **Move all animations to CSS**. Its easier and more convenient to control animations from CSS.
 * **Add "loader" feature**. Usually you display notifications on a callback of a request. And requests often need a loader. So, I felt that these to feature should go together.
-* **Move all animations to CSS**. It easier and more convenient to control animations from CSS.
 * **Add getter methods**. A bunch of public methods were added, to allow devs to query the state and options. Also, very useful for testing.
