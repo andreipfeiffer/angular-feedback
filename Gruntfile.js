@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.initConfig({
 
@@ -80,6 +81,10 @@ module.exports = function(grunt) {
             }
         },
 
+        karma: {
+            unit:  { configFile: 'karma.conf.js', keepalive: true }
+        },
+
         watch: {
             scripts: {
                 files: ['src/**/*', 'demo/**/*'],
@@ -99,6 +104,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'jshint',
+        'karma',
         'clean',
         'cssmin:build',
         'uglify:build',
@@ -113,7 +119,7 @@ module.exports = function(grunt) {
     ]);
 
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'karma']);
     grunt.registerTask('dev', ['build', 'watch']);
 
 };
