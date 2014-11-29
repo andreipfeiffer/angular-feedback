@@ -1,4 +1,4 @@
-var app = angular.module('demo', ['feedback']);
+var app = angular.module('demo', ['angular-feedback']);
 
 app.controller('MainCtrl', ['$scope', 'feedback',
     function($scope, feedback) {

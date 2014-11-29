@@ -7,7 +7,7 @@
 
     'use strict';
 
-     var module = angular.module('feedback', []);
+     var module = angular.module('angular-feedback', []);
 
      module.provider('feedback', function() {
 
