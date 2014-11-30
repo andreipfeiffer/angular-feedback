@@ -2,9 +2,9 @@
 
     'use strict';
 
-    describe('angular-feedback', function() {
+    describe('feedback provider', function() {
 
-        beforeEach(module('angular-feedback'));
+        beforeEach(module('feedback'));
 
         /*
         var feedbackProvider;
@@ -18,6 +18,7 @@
                     feedbackProvider = provider;
                 }]);
 
+            // name of the provider module
             module('angular-feedback', 'fakeModule');
 
             // This actually triggers the injection into fakeModule

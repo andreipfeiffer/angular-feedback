@@ -1,13 +1,18 @@
 /**
  * @license
+
+ * https://github.com/andreipfeiffer/angular-feedback
+ * for current version
+
  * http://matowens.github.io/ng-notify
  * (c) 2014 MIT License, matowens.com
+ * for original version
  */
 (function() {
 
     'use strict';
 
-     var module = angular.module('angular-feedback', []);
+     var module = angular.module('feedback', []);
 
      module.provider('feedback', function() {
 
