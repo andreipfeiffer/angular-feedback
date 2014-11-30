@@ -33,8 +33,12 @@ module.exports = function(config) {
             'src/scripts/*.js': 'coverage',
         },
         coverageReporter: {
-            type : 'text',
-            dir : 'coverage/'
+            dir : 'coverage/',
+            reporters: [
+                { type: 'text' },
+                { type: 'html', subdir: 'html' },
+                { type: 'lcov', subdir: 'lcov' },
+            ]
         },
 
         // test results reporter to use
