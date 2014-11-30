@@ -1,5 +1,8 @@
 #angular-feedback changelog
 
+##v0.9.2
+- coveralls integration
+
 ##v0.9.1
 - travis-ci integration
 
