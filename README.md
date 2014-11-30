@@ -32,8 +32,13 @@ After including **feedback.min.js** and **feedback.min.css**, inject the `feedba
     var app = angular.module('myApp', ['feedback']);
 
     // then inject and use it in your controllers
-    app.controller('MainCtrl', ['feedback', function(feedback) {
+    app.controller('MainCtrl', ['feedback', '$http', function(feedback, $http) {
+
         feedback.load();
+
+        $http.get('some/request').success(function () {
+            feedback.notify('Your request has completed!');
+        });
     }]);
 
 Now you can trigger notifications and loaders from anywhere in your app.
