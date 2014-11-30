@@ -125,7 +125,7 @@
                         $timeout.cancel(timeoutAutoDismiss);
                         $timeout.cancel(timeoutDismiss);
 
-                        var c = types['neutral'] + ' ' + ' fdb-loading';
+                        var c = types.neutral + ' ' + ' fdb-loading';
 
                         feedbackScope.isActive = true;
                         feedbackScope.feedbackClass = c;
