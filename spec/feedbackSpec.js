@@ -97,20 +97,36 @@
         }));
 
         it('should set default config', inject(function(feedback) {
-            var message = 'Notification message';
             feedback.config({
                 sticky: true,
                 type: 'warn'
             });
-            feedback.notify( message );
+            feedback.notify('msg');
             expect( feedback.getType() ).toBe('warn');
             expect( feedback.isSticky() ).toBeTruthy();
         }));
 
+        it('should not set default config, if no object is provided', inject(function(feedback) {
+            feedback.config();
+            feedback.notify('msg');
+            expect( feedback.getType() ).toBe('info');
+            expect( feedback.isSticky() ).toBeFalsy();
+        }));
+
         it('should add a new type', inject(function(feedback) {
-            feedback.addType('custom', 'custom');
-            expect( feedback.getType() ).toBe('warn');
-            expect( feedback.isSticky() ).toBeTruthy();
+            feedback.addType('custom', 'customClassName');
+            feedback.notify('msg', 'custom');
+            expect( feedback.getType() ).toBe('custom');
+        }));
+
+        it('should not add a new type without name and className', inject(function(feedback) {
+            feedback.addType('custom');
+            feedback.notify('msg', 'custom');
+            expect( feedback.getType() ).toBe('info');
+
+            feedback.addType('', 'customClassName');
+            feedback.notify('msg', 'custom');
+            expect( feedback.getType() ).toBe('info');
         }));
 
     });
