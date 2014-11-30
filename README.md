@@ -28,7 +28,13 @@ Just include the minified version of both `.js` and `.css` files.
 
 After including **feedback.min.js** and **feedback.min.css**, inject the `feedback` provider into your project.
 
-    var app = angular.module('demo', ['feedback']);
+    // inject it in your application module
+    var app = angular.module('myApp', ['feedback']);
+
+    // then inject and use it in your controllers
+    app.controller('MainCtrl', ['feedback', function(feedback) {
+        feedback.load();
+    }]);
 
 Now you can trigger notifications and loaders from anywhere in your app.
 
