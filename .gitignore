@@ -15,3 +15,4 @@ dist/demo
 logs
 .sass-cache
 _gh-pages
+coverage
