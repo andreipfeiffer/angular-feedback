@@ -48,11 +48,12 @@
 
         it('should set default notification to "info"', inject(function(feedback) {
             var message = 'Notification message';
+
             feedback.notify( message );
 
             expect( feedback.isActive() ).toBeTruthy();
             expect( feedback.isLoading() ).toBeFalsy();
-            // expect( feedback.getType() ).toBe('info');
+            expect( feedback.getType() ).toBe('info');
             expect( feedback.getMessage() ).toBe( message);
         }));
 
