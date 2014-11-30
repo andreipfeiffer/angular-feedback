@@ -1,5 +1,8 @@
 #angular-feedback changelog
 
+##v0.9.3
+- change module name to: `feedback`
+
 ##v0.9.2
 - coveralls integration
 
