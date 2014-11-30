@@ -1,5 +1,8 @@
 #angular-feedback changelog
 
+##v0.9.0
+- add unit-tests
+
 ##v0.8.0
 - change name of the package to: `angular-feedback`
 - write the README.md file

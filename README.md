@@ -79,7 +79,7 @@ Sticky notifications allow you to set a persistant notification that doesn't fad
     });
 
 This will give the user the option of closing the notification themselves. If you need to dismiss a notification manually, you can do so with the `dismiss` method like this:
-    
+
     feedback.dismiss();
 
 **NOTE:**
@@ -142,3 +142,4 @@ Here is a list of the additions and removals from the original module:
 * **Move all animations to CSS**. Its easier and more convenient to control animations from CSS.
 * **Add "loader" feature**. Usually you display notifications on a callback of a request. And requests often need a loader. So, I felt that these to feature should go together.
 * **Add getter methods**. A bunch of public methods were added, to allow devs to query the state and options. Also, very useful for testing.
+* **Add unit-tests**. 100% code coverage.
