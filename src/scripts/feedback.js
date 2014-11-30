@@ -103,7 +103,7 @@
                             options = angular.extend( {}, defaults, userOpt );
                         } else {
                             options = angular.extend( {}, defaults );
-                            options.type = userOpt;
+                            options.type = userOpt || defaults.type;
                         }
 
                         var c = setType(options.type) + ' ';
