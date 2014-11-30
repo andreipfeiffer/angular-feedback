@@ -46,15 +46,31 @@
             expect( feedback.isLoading() ).toBeFalsy();
         }));
 
-        it('should set default notification to "info"', inject(function(feedback) {
+        it('should be active when notification displayed', inject(function(feedback) {
             var message = 'Notification message';
-
             feedback.notify( message );
-
             expect( feedback.isActive() ).toBeTruthy();
             expect( feedback.isLoading() ).toBeFalsy();
+        }));
+
+        it('should set default notification to "info"', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.notify( message );
             expect( feedback.getType() ).toBe('info');
             expect( feedback.getMessage() ).toBe( message);
+        }));
+
+        it('should set passed notification type', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.notify( message, 'error' );
+            expect( feedback.getType() ).toBe('error');
+        }));
+
+        it('should set passed notification object', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.notify( message, { type: 'success', sticky: true });
+            expect( feedback.getType() ).toBe('success');
+            expect( feedback.isSticky() ).toBeTruthy();
         }));
 
     });
