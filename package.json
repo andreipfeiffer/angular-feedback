@@ -3,9 +3,6 @@
   "version": "0.9.1",
   "description": "A simple, lightweight module for displaying notifications & loaders in your AngularJS app",
   "main": "./src/scripts/feedback.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/andreipfeiffer/angular-feedback"
