@@ -51,7 +51,7 @@
                 $document.find('body').append(tpl);
 
                 var setType = function(providedType) {
-                    var type = (providedType || defaults.type) + 'Class';
+                    var type = providedType + 'Class';
                     return types[type] || types.infoClass;
                 };
 
