@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-karma-coveralls');
 
     grunt.initConfig({
 
@@ -83,6 +84,16 @@ module.exports = function(grunt) {
 
         karma: {
             unit:  { configFile: 'karma.conf.js', keepalive: true }
+        },
+
+        coveralls: {
+            options: {
+                debug: true,
+                coverageDir: 'coverage/lcov/',
+                dryRun: false,
+                force: true,
+                recursive: false
+            }
         },
 
         watch: {
