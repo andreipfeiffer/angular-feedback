@@ -1,5 +1,8 @@
 #angular-feedback changelog
 
+##v0.9.1
+- travis-ci integration
+
 ##v0.9.0
 - add unit-tests
 
