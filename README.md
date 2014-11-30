@@ -1,8 +1,8 @@
 # angular-feedback
 
-A simple, lightweight module for displaying notifications and loaders in your AngularJS app.
-
 [![Build Status](https://travis-ci.org/andreipfeiffer/angular-feedback.svg?branch=master)](https://travis-ci.org/andreipfeiffer/angular-feedback)
+
+A simple, lightweight module for displaying notifications and loaders in your AngularJS app.
 
 [View Demo](http://andreipfeiffer.github.io/angular-feedback/)
 
