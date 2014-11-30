@@ -28,6 +28,8 @@
         it('should be inactive by default', inject(function(feedback) {
             expect( feedback.isActive() ).toBeFalsy();
             expect( feedback.isLoading() ).toBeFalsy();
+            expect( feedback.isSticky() ).toBeFalsy();
+            expect( feedback.getType() ).toBeUndefined();
         }));
 
         it('should set loader', inject(function(feedback) {
@@ -46,10 +48,25 @@
             expect( feedback.isLoading() ).toBeFalsy();
         }));
 
+        it('should not set a notification with empty message', inject(function(feedback) {
+            feedback.notify('');
+            expect( feedback.isActive() ).toBeFalsy();
+        }));
+
         it('should be active when notification displayed', inject(function(feedback) {
             var message = 'Notification message';
             feedback.notify( message );
             expect( feedback.isActive() ).toBeTruthy();
+            expect( feedback.isLoading() ).toBeFalsy();
+        }));
+
+        it('should dismiss notification', inject(function(feedback, $timeout) {
+            feedback.notify('Notification');
+            feedback.dismiss();
+
+            $timeout.flush();
+
+            expect( feedback.isActive() ).toBeFalsy();
             expect( feedback.isLoading() ).toBeFalsy();
         }));
 
@@ -70,6 +87,17 @@
             var message = 'Notification message';
             feedback.notify( message, { type: 'success', sticky: true });
             expect( feedback.getType() ).toBe('success');
+            expect( feedback.isSticky() ).toBeTruthy();
+        }));
+
+        it('should set default config', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.config({
+                sticky: true,
+                type: 'warn'
+            });
+            feedback.notify( message );
+            expect( feedback.getType() ).toBe('warn');
             expect( feedback.isSticky() ).toBeTruthy();
         }));
 
