@@ -70,11 +70,17 @@
             expect( feedback.isLoading() ).toBeFalsy();
         }));
 
-        it('should set default notification to "info"', inject(function(feedback) {
+        it('should set default notification to "info", if no type provided', inject(function(feedback) {
             var message = 'Notification message';
             feedback.notify( message );
             expect( feedback.getType() ).toBe('info');
             expect( feedback.getMessage() ).toBe( message);
+        }));
+
+        it('should set default notification to "info", if wrong type provided', inject(function(feedback) {
+            var message = 'Notification message';
+            feedback.notify( message, 'wrongType' );
+            expect( feedback.getType() ).toBe('info');
         }));
 
         it('should set passed notification type', inject(function(feedback) {
@@ -97,6 +103,12 @@
                 type: 'warn'
             });
             feedback.notify( message );
+            expect( feedback.getType() ).toBe('warn');
+            expect( feedback.isSticky() ).toBeTruthy();
+        }));
+
+        it('should add a new type', inject(function(feedback) {
+            feedback.addType('custom', 'custom');
             expect( feedback.getType() ).toBe('warn');
             expect( feedback.isSticky() ).toBeTruthy();
         }));

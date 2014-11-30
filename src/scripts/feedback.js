@@ -24,12 +24,12 @@
                 var userOpts = {};
 
                 var types = {
-                    infoClass: 'fdb-info',
-                    errorClass: 'fdb-error',
-                    successClass: 'fdb-success',
-                    warnClass: 'fdb-warn',
-                    grimaceClass: 'fdb-grimace',
-                    neutralClass: 'fdb-neutral'
+                    'info': 'fdb-info',
+                    'error': 'fdb-error',
+                    'success': 'fdb-success',
+                    'warn': 'fdb-warn',
+                    'grimace': 'fdb-grimace',
+                    'neutral': 'fdb-neutral'
                 };
 
                 var timeoutAutoDismiss;
@@ -50,9 +50,8 @@
 
                 $document.find('body').append(tpl);
 
-                var setType = function(providedType) {
-                    var type = providedType + 'Class';
-                    return types[type] || types.infoClass;
+                var getTypeClass = function(type) {
+                    return types[type] || types['info'];
                 };
 
                 var reset = function() {
@@ -103,10 +102,12 @@
                             options = angular.extend( {}, defaults, userOpt );
                         } else {
                             options = angular.extend( {}, defaults );
-                            options.type = userOpt || defaults.type;
+                            if ( userOpt && types[userOpt] ) {
+                                options.type = userOpt;
+                            }
                         }
 
-                        var c = setType(options.type) + ' ';
+                        var c = getTypeClass(options.type) + ' ';
                         c += options.sticky ? ' fdb-sticky' : '';
                         c += ' fdb-expand';
 
@@ -128,7 +129,7 @@
                         $timeout.cancel(timeoutAutoDismiss);
                         $timeout.cancel(timeoutDismiss);
 
-                        var c = setType('neutral') + ' ' + ' fdb-loading';
+                        var c = getTypeClass('neutral') + ' ' + ' fdb-loading';
 
                         feedbackScope.isActive = true;
                         feedbackScope.feedbackClass = c;
@@ -163,8 +164,10 @@
                     },
 
                     addType: function(typeName, typeClass) {
-                        if (!typeName || !typeClass) { return; }
-                        types[typeName + 'Class'] = typeClass;
+                        if (!typeName || !typeClass) {
+                            return;
+                        }
+                        types[typeName] = typeClass;
                     }
 
                 };
