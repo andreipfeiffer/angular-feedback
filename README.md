@@ -1,6 +1,7 @@
 # angular-feedback
 
 [![Build Status](https://travis-ci.org/andreipfeiffer/angular-feedback.svg?branch=master)](https://travis-ci.org/andreipfeiffer/angular-feedback)
+[![Coverage Status](https://coveralls.io/repos/andreipfeiffer/angular-feedback/badge.png?branch=master)](https://coveralls.io/r/andreipfeiffer/angular-feedback?branch=master)
 
 A simple, lightweight module for displaying notifications and loaders in your AngularJS app.
 
