@@ -50,10 +50,6 @@
 
                 $document.find('body').append(tpl);
 
-                var getTypeClass = function(type) {
-                    return types[type] || types['info'];
-                };
-
                 var reset = function() {
                     feedbackScope.isActive = false;
                     feedbackScope.feedbackClass = '';
@@ -107,7 +103,7 @@
                             }
                         }
 
-                        var c = getTypeClass(options.type) + ' ';
+                        var c = types[options.type] + ' ';
                         c += options.sticky ? ' fdb-sticky' : '';
                         c += ' fdb-expand';
 
@@ -129,7 +125,7 @@
                         $timeout.cancel(timeoutAutoDismiss);
                         $timeout.cancel(timeoutDismiss);
 
-                        var c = getTypeClass('neutral') + ' ' + ' fdb-loading';
+                        var c = types['neutral'] + ' ' + ' fdb-loading';
 
                         feedbackScope.isActive = true;
                         feedbackScope.feedbackClass = c;
