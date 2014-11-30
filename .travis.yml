@@ -11,3 +11,6 @@ install:
     - "bower install"
 
 before_script: grunt
+
+after_success:
+    - coveralls
