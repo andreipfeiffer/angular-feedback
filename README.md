@@ -1,5 +1,6 @@
 # angular-feedback
 
+[![Bower version](https://badge.fury.io/bo/angular-feedback.svg)](http://badge.fury.io/bo/angular-feedback)
 [![Build Status](https://travis-ci.org/andreipfeiffer/angular-feedback.svg?branch=master)](https://travis-ci.org/andreipfeiffer/angular-feedback)
 [![Coverage Status](https://coveralls.io/repos/andreipfeiffer/angular-feedback/badge.png?branch=master)](https://coveralls.io/r/andreipfeiffer/angular-feedback?branch=master)
 
