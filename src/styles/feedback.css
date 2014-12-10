@@ -32,7 +32,8 @@
 
 .fdb-inner {
   padding: 0.9em 2em;
-  border-radius: 1.5em;
+  /* radius = 2 * line-height */
+  border-radius: 2.8em;
   display: inline-block;
   box-sizing: border-box;
   box-shadow: 0 0 0 3px rgba(0,0,0,.1);
@@ -68,7 +69,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: block;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .fdb-expand {
@@ -102,12 +103,13 @@
 .fdb-spinner {
   position: relative;
   text-indent: -9999em;
-  border-top: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #0e90d2;
-  -webkit-animation: spinAnimation 0.6s infinite linear;
-  animation: spinAnimation 0.6s infinite linear;
+  padding: 6px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid #0e90d2;
+  -webkit-animation: spinAnimation 0.5s infinite linear;
+  animation: spinAnimation 0.5s infinite linear;
 
   box-sizing: border-box;
 }
