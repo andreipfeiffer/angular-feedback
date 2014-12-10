@@ -147,6 +147,12 @@ Returns the value of the *type* option. Defaults to `undefined` if a loader is a
 #### getMessage()
 Returns the text message. Defaults to `''`.
 
+# Browser Support
+
+* Firefox 34.*
+* Chrome 39.*
+* Internet Explorer 10
+
 # Changes to ng-notify
 
 Here is a list of the additions and removals from the original module:
