@@ -1,5 +1,8 @@
 #angular-feedback changelog
 
+##v0.9.4
+- update styling, for Firefox optimization
+
 ##v0.9.3
 - change module name to: `feedback`
 
