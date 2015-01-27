@@ -161,6 +161,6 @@ Here is a list of the additions and removals from the original module:
 * **Removed the `theme` option**. Theming the module should be out of scope, from my point of view. The module should not bundle multiple themes. Theming is a presentational concept, so it should be controlled from CSS.
 * **Removed dismiss trigger**. I prefer to click the whole notification to dismiss.
 * **Move all animations to CSS**. Its easier and more convenient to control animations from CSS.
-* **Add "loader" feature**. Usually you display notifications on a callback of a request. And requests often need a loader. So, I felt that these to feature should go together.
+* **Add "loader" feature**. Usually you display notifications on a callback of a request. And requests often need a loader. So, I felt that these 2 features should go hand-in-hand.
 * **Add getter methods**. A bunch of public methods were added, to allow devs to query the state and options. Also, very useful for testing.
 * **Add unit-tests**. 100% code coverage.
